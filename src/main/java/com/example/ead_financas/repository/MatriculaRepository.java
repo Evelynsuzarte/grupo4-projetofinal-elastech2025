@@ -1,4 +1,4 @@
-package com.example.ead_financas.model.repository;
+package com.example.ead_financas.repository;
 
 import com.example.ead_financas.model.entity.Matricula;
 import org.springframework.data.jpa.repository.JpaRepository;

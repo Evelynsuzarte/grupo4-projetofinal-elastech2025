@@ -16,7 +16,7 @@ public class Curso {
 
   @Lob
   @Column(columnDefinition = "TEXT")
-  private String descrição;
+  private String descricao;
 
 
   private  String caminhoImagem;
@@ -24,10 +24,26 @@ public class Curso {
 
   // essa parte aqui ainda
 
+
   @ManyToOne
   @JoinColumn(name = "professor_id")
   private Usuario professor;
 
   @OneToMany(mappedBy = "curso")
   private List<Matricula> matriculas = new ArrayList<>();
+    
+  
+  
+  public Long getId() {
+	  return id;
+  }
+  
+  
+  public String getTitulo() {
+	  return titulo;
+  }
+  
+  public void setTitulo(String titulo) {
+	  this.titulo = titulo;
+  }
 }
