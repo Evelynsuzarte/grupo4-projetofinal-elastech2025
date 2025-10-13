@@ -78,7 +78,7 @@
     
 <div id="endpoints">
     <h1>Endpoints</h1>
-	<p><a href="http://localhost:8080/usuarios">Acesse clicando aqui</a></p>
+	<p><a href="http://localhost:8080/usuarios">Acesse clicando aqui - LOCALHOST</a></p>
     <p>O teste pode ser feito através do navegador ou de um programa para teste de API, como o Postman ou Insomnia.</p> 
     <p></p>
     <p>Nesse sistema é possível que um Professor possa criar, editar e visualizar seus próprios cursos.um Aluno possa se inscrever em um
