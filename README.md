@@ -133,13 +133,11 @@
         <td>Curso</td>
         <td>GET</td>
         <td>Retorna apenas um alunos do banco de dados</td>
-        <td>http://localhost:8080/usuarios/{id}</td>
     </tr>
     <tr>
         <td>Matricula</td>
         <td>POST</td>
         <td>Retorna apenas um alunos do banco de dados</td>
-        <td>http://localhost:8080/usuarios/adicionar</td>
     </tr>
 </table>
     <h1><b>PREENCHER ENTIDADES RESTANTES</b></h1>
