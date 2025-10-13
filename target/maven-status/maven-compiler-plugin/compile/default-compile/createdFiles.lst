@@ -1,0 +1,8 @@
+com\example\ead_financas\model\entity\Usuario.class
+com\example\ead_financas\model\entity\Matricula.class
+com\example\ead_financas\model\repository\MatriculaRepository.class
+com\example\ead_financas\model\enums\Perfil.class
+com\example\ead_financas\model\repository\CursoRepository.class
+com\example\ead_financas\model\repository\UsuarioRepository.class
+com\example\ead_financas\model\entity\Curso.class
+com\example\ead_financas\EadFinancasApplication.class
