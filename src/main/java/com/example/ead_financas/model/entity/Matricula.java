@@ -1,67 +1,57 @@
 package com.example.ead_financas.model.entity;
 
-import java.time.LocalDateTime;
-
-import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
-import jakarta.persistence.FetchType;
-import jakarta.persistence.ForeignKey;
 import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.*;
+import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
+import jakarta.persistence.PrePersist;
 import jakarta.persistence.Table;
+import java.time.LocalDateTime;
 
 @Entity
 @Table(name = "matriculas")
 public class Matricula {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    @GeneratedValue
+    public Long id;
 
-    @Column(name = "dataMatricula", nullable = false)
-    private LocalDateTime dataMatricula = LocalDateTime.now();
-
-    @Column(name = "numeroMatricula", unique = true, nullable = false)
-    private String numeroMatricula;
-
-    @ManyToOne(fetch = FetchType.LAZY, optional = false)
-    @JoinColumn(name = "aluno_id", nullable = false, foreignKey = @ForeignKey(name = "fk_matricula_aluno"))
+    @ManyToOne
+    @JoinColumn(name = "aluno_id")
     private Usuario aluno;
 
-    @ManyToOne(fetch = FetchType.LAZY, optional = false)
-    @JoinColumn(name = "curso_id", nullable = false, foreignKey = @ForeignKey(name = "fk_matricula_curso"))
+    @ManyToOne
+    @JoinColumn(name = "curso_id")
     private Curso curso;
 
-    public Matricula() {}
+    private LocalDateTime dataMatricula;
 
-    public Matricula(LocalDateTime dataMatricula, String numeroMatricula, Usuario aluno, Curso curso) {
-        this.dataMatricula = dataMatricula;
-        this.numeroMatricula = numeroMatricula;
+    @PrePersist
+    public void prePersist() {
+        if (dataMatricula == null) dataMatricula = LocalDateTime.now();
+    }
+
+
+
+    public Matricula() {
+    }
+
+    public Matricula(Long id, Usuario aluno, Curso curso, LocalDateTime dataMatricula) {
+        this.id = id;
         this.aluno = aluno;
         this.curso = curso;
+        this.dataMatricula = dataMatricula;
     }
+
+
 
     public Long getId() {
         return id;
     }
 
-    public LocalDateTime getDataMatricula() {
-        return dataMatricula;
-    }
-
-    public void setDataMatricula(LocalDateTime dataMatricula) {
-        this.dataMatricula = dataMatricula;
-    }
-
-    public String getNumeroMatricula() {
-        return numeroMatricula;
-    }
-
-    public void setNumeroMatricula(String numeroMatricula) {
-        this.numeroMatricula = numeroMatricula;
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public Usuario getAluno() {
@@ -78,5 +68,13 @@ public class Matricula {
 
     public void setCurso(Curso curso) {
         this.curso = curso;
+    }
+
+    public LocalDateTime getDataMatricula() {
+        return dataMatricula;
+    }
+
+    public void setDataMatricula(LocalDateTime dataMatricula) {
+        this.dataMatricula = dataMatricula;
     }
 }
