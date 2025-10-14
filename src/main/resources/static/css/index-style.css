@@ -1,15 +1,17 @@
 :root {
-  --fundo: #f7f9fb;
+  --fundo: #eaeaea;
   --largura: 1100px;
-  --principal: #f4d03f;
-  --destaque: #f4d03f;
+  --principal: #FFE72D;
+  --destaque: #FFE72D;
   --texto: #1f2933;
   --suave: #7d8a93;
   --cartao: #fff;
+  --teste: #F0EAA1;
   --raio: 12px;
   --sombra: 0 6px 18px rgba(16, 24, 32, 0.08);
 }
 
+/* RESET BÁSICO */
 * {
   box-sizing: border-box;
 }
@@ -28,7 +30,7 @@ body {
   padding: 0 20px;
 }
 
-/* CABEÇALHO */
+/* ======== CABEÇALHO ======== */
 .cabecalho {
   background: #9ed6d7;
   padding: 14px 0;
@@ -50,25 +52,6 @@ body {
 .marca img {
   height: 60px;
   width: 130px;
-}
-
-.logo {
-  width: 46px;
-  height: 46px;
-  background: var(--principal);
-  color: #111;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-weight: bold;
-  border-radius: 10px;
-  box-shadow: var(--sombra);
-}
-
-.marca-texto small {
-  display: block;
-  font-size: 12px;
-  color: var(--suave);
 }
 
 .menu {
@@ -108,6 +91,7 @@ body {
   color: #111;
 }
 
+/* ======== SEÇÃO INICIAL ======== */
 .inicio {
   padding: 40px 0 18px;
   text-align: center;
@@ -139,7 +123,7 @@ body {
   background: rgba(16, 160, 128, 0.15);
 }
 
-/* CATÁLOGO */
+/* ======== CATÁLOGO ======== */
 .catalogo {
   margin-top: 30px;
 }
@@ -187,9 +171,54 @@ body {
 .cartao-descricao {
   color: var(--suave);
   font-size: 14px;
-  flex: 1;
+  max-height: 70px;
+  overflow: hidden;
+  transition: max-height 0.34s ease;
+  margin-right: 30px;
 }
 
+.cartao-descricao.expandido {
+  max-height: 500px;
+}
+
+.cartao-texto {
+  position: relative;
+}
+
+.ver-mais {
+  position: absolute;
+  top: 50%;
+  right: 8px;
+  transform: translateY(-50%);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  padding: 0;
+  border: none;
+  background: none;
+  cursor: pointer;
+  outline: none;
+}
+
+.ver-mais .material-symbols-outlined {
+  font-size: 20px;
+  color: var(--suave);
+  transition: transform 0.28s ease, color 0.18s ease;
+  line-height: 1;
+  pointer-events: none;
+}
+
+.ver-mais:hover .material-symbols-outlined {
+  color: var(--destaque);
+}
+
+.ver-mais.expandido .material-symbols-outlined {
+  transform: rotate(180deg);
+}
+
+/* DETALHES E AÇÕES */
 .cartao-detalhes {
   display: flex;
   gap: 8px;
@@ -213,6 +242,7 @@ body {
   gap: 10px;
 }
 
+/* ======== RODAPÉ ======== */
 .rodape {
   border-top: 1px solid rgba(0, 0, 0, 0.05);
   padding: 18px 0;
@@ -247,5 +277,9 @@ body {
 
   .inicio h1 {
     font-size: 22px;
+  }
+
+  .grade {
+    grid-template-columns: 1fr;
   }
 }
