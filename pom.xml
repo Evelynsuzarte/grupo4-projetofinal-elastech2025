@@ -63,7 +63,19 @@
    			<groupId>org.springframework.boot</groupId>
     		<artifactId>spring-boot-starter-validation</artifactId>
 		</dependency>
-	</dependencies>
+	
+   <dependency>
+     <groupId>io.cronapp</groupId>
+     <artifactId>cronapp-acesso-cliente</artifactId>
+     <version>3.2.1-SP.7</version>
+   </dependency>
+ 
+   <dependency>
+     <groupId>com.google.android</groupId>
+     <artifactId>android</artifactId>
+     <version>4.1.1.4</version>
+   </dependency>
+ </dependencies>
 
 	<build>
 		<plugins>
