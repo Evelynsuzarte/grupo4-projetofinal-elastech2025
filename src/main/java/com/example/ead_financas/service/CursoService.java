@@ -16,18 +16,21 @@ public class CursoService {
 	private CursoRepository repo;
 	
 	@Transactional
-	public Curso criar(Curso curso) {
+	public Curso salvar(Curso curso) {
 		return repo.save(curso);
 	}
 	
-	public Curso editar(Long id, String novoTitulo) {
+	public Curso editar(Long id, String novoTitulo, String novaDescricao, String novoCaminho) {
 		Curso curso = repo.findById(id).orElse(null);
 		if(curso != null) {
 			curso.setTitulo(novoTitulo);
+			curso.setDescricao(novaDescricao);
+			curso.setCaminhoImagem(novoCaminho);
 			return repo.save(curso);		
 		}
 		return null;		
 	}
+	
 	public Optional<Curso> buscarPorId(Long id){
 		return repo.findById(id);
 	}
@@ -35,9 +38,5 @@ public class CursoService {
 	public List<Curso> listarTodos(){
 		return repo.findAll();
 	}
-	
-	
-	
-	
 	
 }
