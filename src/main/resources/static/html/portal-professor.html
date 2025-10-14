@@ -1,100 +1,104 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-
-
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="../css/portal-contato.css">
-    <title> IFL - Cursos </title>
+    <title>IFL - Cursos</title>
 </head>
 
 <body>
-    <!-- botão de acessibilidade-->
-    <div class="nav-container">
-        <div id="controles-acessibilidade">
-            <button onclick="aumentarFonte()">A+</button>
-            <button onclick="diminuirFonte()">A−</button>
-            <button onclick="alternarContraste()">🔳 Contraste</button>
-            <button onclick="alternarModo()">🌙</button>
+<!-- Botão de acessibilidade -->
+<div class="nav-container">
+    <div id="controles-acessibilidade">
+        <button onclick="aumentarFonte()">A+</button>
+        <button onclick="diminuirFonte()">A−</button>
+        <button onclick="alternarContraste()">🔳 Contraste</button>
+        <button onclick="alternarModo()">🌙</button>
+    </div>
+
+    <!-- Cabeçalho -->
+    <header class="cabecalho">
+        <div class="container cabecalho-conteudo">
+            <div class="marca">
+                <img src="../imagens/logo.jpg" alt="Logo do Instituto Luiz Freitas">
+            </div>
+
+            <nav class="menu">
+                <a href="index.html" class="link">Cursos</a>
+                <a href="sobre-nos.html" class="link">Sobre Nós</a>
+                <a href="portal-aluno.html" class="link">Portal do Aluno</a>
+                <a href="portal-professor.html" class="link">Portal do Professor</a>
+                <a href="contato.html" class="link">Contato</a>
+                <button class="botao botao-principal">Entrar</button>
+            </nav>
         </div>
+    </header>
 
-        <!-- Cabeçalho -->
-        <header class="cabecalho">
-            <div class="container cabecalho-conteudo">
-                <div class="marca">
-                    <div><img src="../imagens/logo.jpg"></div>
-                </div>
+    <main>
+        <div class="tabela-container">
+            <h2 class="titulo-centralizado">Lista de Cursos do Professor</h2>
+            <table class="table">
+                <thead>
+                <tr>
+                    <th scope="col">Código</th>
+                    <th scope="col">Título</th>
+                    <th scope="col">Quantidade de Alunos</th>
+                    <th scope="col">Ação</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <th scope="row">1</th>
+                    <td>Pequenos Investidores: Educação Financeira Infantil</td>
+                    <td>25</td>
+                    <td><button class="botao botao-principal">Ver Alunos</button></td>
+                </tr>
+                <tr>
+                    <th scope="row">2</th>
+                    <td>Gestão Financeira para Pequenos Negócios</td>
+                    <td>32</td>
+                    <td><button class="botao botao-principal">Ver Alunos</button></td>
+                </tr>
+                <tr>
+                    <th scope="row">3</th>
+                    <td>Primeiros Passos em Educação Financeira</td>
+                    <td>10</td>
+                    <td><button class="botao botao-principal">Ver Alunos</button></td>
+                </tr>
+                <tr>
+                    <th scope="row">4</th>
+                    <td>Não sei o título</td>
+                    <td>12</td>
+                    <td><button class="botao botao-principal">Ver Alunos</button></td>
+                </tr>
+                <tr>
+                    <th scope="row">5</th>
+                    <td>Não sei o título</td>
+                    <td>12</td>
+                    <td><button class="botao botao-principal">Ver Alunos</button></td>
+                </tr>
+                <tr>
+                    <th scope="row">6</th>
+                    <td>Não sei o título</td>
+                    <td>12</td>
+                    <td><button class="botao botao-principal">Ver Alunos</button></td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </main>
 
-                <header>
-
-                    <nav class="menu">
-                        <a href="index.html" class="link">Cursos</a>
-                        <a href="sobre-nos.html" class="link">Sobre Nós</a>
-                        <a href="portal-aluno.html" class="link">Portal do Aluno</a>
-                        <a href="portal-professor.html" class="link">Portal do Professor</a>
-                        <a href="contato.html" class="link">Contato</a>
-                        <button class="botao botao-principal">Entrar</button>
-
-
-                    </nav>
-            </div>
-        </header>
-        <main>
-
-            <div class="tabela-container">
-                <h2 class="titulo-centralizado">Lista de Curso do Professor</h2>
-                <table class="table">
-                    <thead>
-                        <tr>
-                            <th scope="col">Código</th>
-                            <th scope="col">Titulo</th>
-                            <th scope="col">Quantidade de Aluno</th>
-                            <th scope="col">Ação</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <th scope="row">1</th>
-                            <td>Pequenos Investidores: Educação Financeira Infantil</td>
-                            <td>25</td>
-                            <td>
-                                <button class="botao botao-principal">Ver Alunos</button>
-                            </td>
-                        </tr>
-                        <tr>
-                            <th scope="row">2</th>
-                            <td>Gestão Financeira para Pequenos Negócios</td>
-                            <td>32</td>
-                            <td>
-                                <button class="botao botao-principal">Ver Alunos</button>
-                            </td>
-                        </tr>
-                        <tr>
-                            <th scope="row">3</th>
-                            <td>Primeiros Passos em Educação Financeira</td>
-                            <td>10</td>
-                            <td>
-                                <button class="botao botao-principal">Ver Alunos</button>
-                            </td>
-
-                        </tr>
-                    </tbody>
-                </table>
-        </main>
-
-
-
-        <!-- Rodapé -->
-        <footer class="rodape">
-            <div class="container rodape-conteudo">
-                <p>© <strong>Instituto Luiz Freitas</strong> — Em parceria com SoulCode & PagBank</p>
-                <nav class="rodape-links">
-                    <a href="#">Política de Privacidade</a>
-                    <a href="#">Contato</a>
-                </nav>
-            </div>
-        </footer>
+    <!-- Rodapé -->
+    <footer class="rodape">
+        <div class="container rodape-conteudo">
+            <p>© <strong>Instituto Luiz Freitas</strong> — Em parceria com SoulCode & PagBank</p>
+            <nav class="rodape-links">
+                <a href="#">Política de Privacidade</a>
+                <a href="#">Contato</a>
+            </nav>
+        </div>
+    </footer>
+</div>
 </body>
-
 </html>
