@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="../css/index-style.css">
+  <title> IFL - Cursos </title>
+</head>
+
+<body>
+  <!-- botão de acessibilidade-->
+  <div class="nav-container">
+    <div id="controles-acessibilidade">
+      <button onclick="aumentarFonte()">A+</button>
+      <button onclick="diminuirFonte()">A−</button>
+      <button onclick="alternarContraste()">🔳 Contraste</button>
+      <button onclick="alternarModo()">🌙</button>
+    </div>
+
+    <!-- Cabeçalho -->
+    <header class="cabecalho">
+      <div class="container cabecalho-conteudo">
+        <div class="marca">
+          <div><img src="/imagens/logo.jpg"></div>
+               </div>
+
+        <header>
+
+          <nav class="menu">
+            <a href="index.html" class="link">Cursos</a>
+            <a href="sobrenos.html" class="link">Sobre Nós</a>
+            <a href="portalaluno.html" class="link">Portal do Aluno</a>
+            <a href="portalprofessor.html" class="link">Portal do Professor</a>
+            <a href="contato.html" class="link">Contato</a>            
+            <button class="botao botao-principal">Entrar</button>
+
+
+          </nav>
+      </div>
+    </header>
+
+    <!--Seção inicial -->
+    <main>
+      <section class="inicio">
+        <div class="container inicio-conteudo">
+          <div class="inicio-texto">
+            <h1>Tudo que você precisa saber para iniciar e <span class="destaque">alavancar</span> sua vida <span
+                class="destaque secundaria">financeira</span></h1>
+            <p class="descricao">Cursos práticos e acessíveis, em parceria com SoulCode e PagBank.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Catálogo -->
+      <section class="catalogo container">
+        <header class="secao-cabecalho">
+          <h2>Cursos em destaque</h2>
+          <p>Selecione um curso para saber mais e se inscrever</p>
+        </header>
+
+        <div class="grade">
+          <!-- Card 1 -->
+          <article class="cartao">
+            <img src="curso1.jpg" alt="Pequenos Investidores" class="cartao-imagem">
+            <div class="cartao-corpo">
+              <h3 class="cartao-titulo">Pequenos Investidores: Educação Financeira Infantil</h3>
+              <p class="cartao-descricao">Curso introdutório sobre finanças voltado ao público infantil, com linguagem
+                simples e atividades práticas.</p>
+              <div class="cartao-detalhes">
+                <span class="etiqueta">Iniciação</span>
+                <span class="etiqueta neutra">2h</span>
+              </div>
+              <div class="cartao-acoes">
+                <button class="botao botao-borda">Detalhes</button>
+                <button class="botao botao-destaque">Inscrever-se</button>
+              </div>
+            </div>
+          </article>
+
+          <!-- Card 2 -->
+          <article class="cartao">
+            <img src="curso2.jpg" alt="Gestão Financeira para Pequenos Negócios" class="cartao-imagem">
+            <div class="cartao-corpo">
+              <h3 class="cartao-titulo">Gestão Financeira para Pequenos Negócios</h3>
+              <p class="cartao-descricao">Aprenda a gerenciar o fluxo de caixa e melhorar a saúde financeira do seu
+                pequeno negócio.</p>
+              <div class="cartao-detalhes">
+                <span class="etiqueta">Intermediário</span>
+                <span class="etiqueta neutra">4h</span>
+              </div>
+              <div class="cartao-acoes">
+                <button class="botao botao-borda">Detalhes</button>
+                <button class="botao botao-destaque">Inscrever-se</button>
+              </div>
+            </div>
+          </article>
+
+          <!-- Card 3 -->
+          <article class="cartao">
+            <img src="curso3.jpg" alt="Primeiros Passos em Educação Financeira" class="cartao-imagem">
+            <div class="cartao-corpo">
+              <h3 class="cartao-titulo">Primeiros Passos em Educação Financeira</h3>
+              <p class="cartao-descricao">Entenda os princípios básicos de finanças pessoais e aprenda a planejar seu
+                futuro.</p>
+              <div class="cartao-detalhes">
+                <span class="etiqueta">Básico</span>
+                <span class="etiqueta neutra">3h</span>
+              </div>
+              <div class="cartao-acoes">
+                <button class="botao botao-borda">Detalhes</button>
+                <button class="botao botao-destaque">Inscrever-se</button>
+              </div>
+            </div>
+          </article>
+        </div>
+      </section>
+    </main>
+
+    <!-- Rodapé -->
+    <footer class="rodape">
+      <div class="container rodape-conteudo">
+        <p>© <strong>Instituto Luiz Freitas</strong> — Em parceria com SoulCode & PagBank</p>
+        <nav class="rodape-links">
+          <a href="#">Política de Privacidade</a>
+          <a href="#">Contato</a>
+        </nav>
+      </div>
+    </footer>
+</body>
+
+</html>
