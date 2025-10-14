@@ -1,0 +1,279 @@
+:root {
+    --fundo: #f7f9fb;
+    --largura: 1100px;
+    --principal: #f4d03f;
+    --destaque: #f4d03f;
+    --texto: #1f2933;
+    --suave: #7d8a93;
+    --cartao: #fff;
+    --raio: 12px;
+    --sombra: 0 6px 18px rgba(16, 24, 32, 0.08);
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    background: var(--fundo);
+    color: var(--texto);
+    font-family: system-ui, Arial, sans-serif;
+    line-height: 1.5;
+}
+
+.container {
+    max-width: var(--largura);
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* CABEÇALHO */
+.cabecalho {
+    background: #9ed6d7;
+    padding: 14px 0;
+    box-shadow: 0 2px 6px rgba(10, 10, 10, 0.05);
+}
+
+.cabecalho-conteudo {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.marca {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.marca img {
+    height: 60px;
+    width: 130px;
+}
+
+.logo {
+    width: 46px;
+    height: 46px;
+    background: var(--principal);
+    color: #111;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    border-radius: 10px;
+    box-shadow: var(--sombra);
+}
+
+.marca-texto small {
+    display: block;
+    font-size: 12px;
+    color: var(--suave);
+}
+
+.menu {
+    display: flex;
+    gap: 14px;
+    align-items: center;
+}
+
+.link {
+    color: var(--texto);
+    text-decoration: none;
+    padding: 8px 10px;
+    border-radius: 8px;
+    font-weight: 600;
+}
+
+.link:hover {
+    background: rgba(0, 0, 0, 0.05);
+}
+
+.botao {
+    border: none;
+    padding: 8px 14px;
+    border-radius: 10px;
+    cursor: pointer;
+    font-weight: 700;
+}
+
+.botao-borda {
+    background: transparent;
+    border: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+.botao-principal,
+.botao-destaque {
+    background: var(--destaque);
+    color: #111;
+}
+
+.inicio {
+    padding: 40px 0 18px;
+    text-align: center;
+}
+
+.inicio-conteudo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 14px;
+}
+
+.inicio h1 {
+    font-size: 32px;
+    margin: 0;
+}
+
+.descricao {
+    color: var(--suave);
+}
+
+.destaque {
+    background: rgba(244, 208, 63, 0.25);
+    padding: 2px 6px;
+    border-radius: 4px;
+}
+
+.destaque.secundaria {
+    background: rgba(16, 160, 128, 0.15);
+}
+
+/* Container do formulário */
+.login-container {
+    max-width: 500px;
+    margin: 40px auto;
+    background-color: var(--cor-fundo);
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.login-container h2 {
+    color: var(--cor-secundaria);
+    margin-bottom: 10px;
+}
+
+.login-container p {
+    margin-bottom: 20px;
+    color: var(--cor-texto);
+}
+
+/* Formulário */
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+form label {
+    align-self: flex-start;
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: var(--cor-texto);
+}
+
+form input,
+form textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 1em;
+}
+
+form textarea {
+    resize: vertical;
+    min-height: 100px;
+}
+
+/*tabela*/
+
+.tabela-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 40px auto;
+    padding: 0 20px;
+}
+
+.titulo-centralizado {
+    text-align: center;
+    font-size: 28px;
+    margin-bottom: 20px;
+    color: var(--texto);
+}
+
+.table {
+    width: 100%;
+    max-width: 800px;
+    border-collapse: collapse;
+    background-color: var(--cartao);
+    box-shadow: var(--sombra);
+    border-radius: var(--raio);
+    overflow: hidden;
+}
+
+.table th,
+.table td {
+    padding: 12px 16px;
+    text-align: left;
+    border-bottom: 1px solid #eee;
+}
+
+.table th {
+    background-color: #9ed6d7;
+    ;
+    font-weight: bold;
+}
+
+
+
+/* RODAPÉ */
+.rodape {
+    border-top: 1px solid rgba(0, 0, 0, 0.05);
+    padding: 18px 0;
+    margin-top: 40px;
+}
+
+.rodape-conteudo {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+.rodape-links a {
+    color: var(--texto);
+    text-decoration: none;
+    margin-left: 10px;
+}
+
+/* RESPONSIVIDADE */
+@media (max-width: 640px) {
+    .cabecalho-conteudo {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .menu {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .inicio h1 {
+        font-size: 22px;
+    }
+
+    .login-container {
+        padding: 10px;
+    }
+
+    form input,
+    form textarea {
+        max-width: 100%;
+    }
+}

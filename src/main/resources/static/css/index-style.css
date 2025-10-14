@@ -32,7 +32,7 @@ body {
 .cabecalho {
   background: #9ed6d7;
   padding: 14px 0;
-  box-shadow: 0 2px 6px rgba(10,10,10,0.05);
+  box-shadow: 0 2px 6px rgba(10, 10, 10, 0.05);
 }
 
 .cabecalho-conteudo {
@@ -46,9 +46,10 @@ body {
   align-items: center;
   gap: 10px;
 }
-.marca img{
-height: 60px;
-width: 130px;
+
+.marca img {
+  height: 60px;
+  width: 130px;
 }
 
 .logo {
@@ -98,7 +99,7 @@ width: 130px;
 
 .botao-borda {
   background: transparent;
-  border: 1px solid rgba(0,0,0,0.08);
+  border: 1px solid rgba(0, 0, 0, 0.08);
 }
 
 .botao-principal,
@@ -213,7 +214,7 @@ width: 130px;
 }
 
 .rodape {
-  border-top: 1px solid rgba(0,0,0,0.05);
+  border-top: 1px solid rgba(0, 0, 0, 0.05);
   padding: 18px 0;
   margin-top: 40px;
 }
