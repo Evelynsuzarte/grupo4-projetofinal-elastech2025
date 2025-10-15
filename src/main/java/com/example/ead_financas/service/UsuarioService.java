@@ -4,7 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import com.example.ead_financas.model.entity.*;
 import com.example.ead_financas.model.enums.Perfil;
-import com.example.ead_financas.repository.*;
+import com.example.ead_financas.model.repository.*;
 import jakarta.transaction.Transactional;
 import java.util.*;
 

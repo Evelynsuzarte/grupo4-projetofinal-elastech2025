@@ -10,6 +10,7 @@ import com.example.ead_financas.model.enums.Perfil;
 import jakarta.validation.constraints.*;
 
 public class UsuarioDTO {
+	
 	@NotBlank(message = "É obrigatório o nome do usuário")		
 	@Size(min = 6, max = 100, message = "deve ter no mínimo 5 caracteres e no máximo 100 caracteres")
 	@Pattern(regexp =  "^(?!.* {3,}).+$", message = "Não pode conter três ou mais espaços seguidos")

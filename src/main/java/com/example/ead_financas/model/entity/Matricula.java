@@ -7,7 +7,7 @@ import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.PrePersist;
 import jakarta.persistence.Table;
-import java.time.LocalDateTime;
+import java.time.LocalDate;
 
 @Entity
 @Table(name = "matriculas")
@@ -25,11 +25,11 @@ public class Matricula {
     @JoinColumn(name = "curso_id")
     private Curso curso;
 
-    private LocalDateTime dataMatricula;
+    private LocalDate dataMatricula;
 
     @PrePersist
     public void prePersist() {
-        if (dataMatricula == null) dataMatricula = LocalDateTime.now();
+        if (dataMatricula == null) dataMatricula = LocalDate.now();
     }
 
 
@@ -37,7 +37,7 @@ public class Matricula {
     public Matricula() {
     }
 
-    public Matricula(Long id, Usuario aluno, Curso curso, LocalDateTime dataMatricula) {
+    public Matricula(Long id, Usuario aluno, Curso curso, LocalDate dataMatricula) {
         this.id = id;
         this.aluno = aluno;
         this.curso = curso;
@@ -70,11 +70,11 @@ public class Matricula {
         this.curso = curso;
     }
 
-    public LocalDateTime getDataMatricula() {
+    public LocalDate getDataMatricula() {
         return dataMatricula;
     }
 
-    public void setDataMatricula(LocalDateTime dataMatricula) {
+    public void setDataMatricula(LocalDate dataMatricula) {
         this.dataMatricula = dataMatricula;
     }
 }

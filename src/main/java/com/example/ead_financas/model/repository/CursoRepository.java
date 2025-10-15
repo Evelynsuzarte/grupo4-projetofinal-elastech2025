@@ -1,4 +1,4 @@
-package com.example.ead_financas.repository;
+package com.example.ead_financas.model.repository;
 
 import java.util.List;
 
