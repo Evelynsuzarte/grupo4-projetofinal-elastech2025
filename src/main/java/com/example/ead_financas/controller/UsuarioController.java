@@ -18,6 +18,8 @@ import jakarta.validation.Valid;
 @RequestMapping("usuarios")
 public class UsuarioController {
 	
+	
+	
 	@Autowired
 	private UsuarioService usuarioService;
 
