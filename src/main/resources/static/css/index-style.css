@@ -2,6 +2,7 @@
   --fundo: #eaeaea;
   --largura: 1100px;
   --principal: #FFE72D;
+  --secundaria: #9DD6D4;
   --destaque: #FFE72D;
   --texto: #1f2933;
   --suave: #7d8a93;
@@ -11,8 +12,9 @@
   --sombra: 0 6px 18px rgba(16, 24, 32, 0.08);
 }
 
-/* RESET BÁSICO */
 * {
+  padding: 0;
+  margin: 0;
   box-sizing: border-box;
 }
 
@@ -32,7 +34,7 @@ body {
 
 /* ======== CABEÇALHO ======== */
 .cabecalho {
-  background: #9ed6d7;
+  background: var(--secundaria);
   padding: 14px 0;
   box-shadow: 0 2px 6px rgba(10, 10, 10, 0.05);
 }

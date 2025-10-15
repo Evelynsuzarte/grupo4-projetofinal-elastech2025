@@ -1,7 +1,8 @@
 :root {
-  --fundo: #f7f9fb;
+  --fundo: #eaeaea;
   --largura: 1100px;
   --principal: #f4d03f;
+  --secundaria: #9DD6D4;
   --destaque: #f4d03f;
   --texto: #1f2933;
   --suave: #7d8a93;
@@ -33,8 +34,9 @@ body {
 
 /* ======== CABEÇALHO ======== */
 .cabecalho {
-  background: #9ed6d7;
+  background: var(--secundaria);
   padding: 14px 0;
+  margin-bottom: 0;
   box-shadow: 0 2px 6px rgba(10, 10, 10, 0.05);
 }
 
@@ -88,15 +90,39 @@ body {
 
 /* ======== SEÇÃO SOBRE NÓS ======== */
 #sobre-empresa {
-  padding: 60px 30px;
-  max-width: 1000px;
-  margin: auto;
+  padding: 0;
+  max-width: 100%;
+  margin: 0;
+}
+
+#fundo-destaque-inicio {
+  background-color: var(--destaque);
+  width: 100vw;           
+  margin: 0;
+  padding: 0 0;
+  margin-bottom: 30px;
+}
+
+#fundo-destaque-inicio h1 {
+  max-width: var(--largura);
+  margin: 0 auto 40px auto;
+  padding: 0 20px;
 }
 
 #sobre-empresa h1,
 #sobre-empresa h2 {
   color: var(--texto);
   margin-bottom: 15px;
+  font-size: 2.5em;
+  font-weight: 500;
+}
+
+#sobre-empresa h1 {
+  font-size: 3.0em;
+}
+
+#sobre-empresa h2{
+  color: var(--secundaria);
 }
 
 #sobre-empresa p,
@@ -111,11 +137,11 @@ body {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 4em;
-  padding: 20px 40px;
+  padding: 40px;
   background-color: var(--cartao);
-  border: solid var(--principal) 10px;
-  border-radius: 40px 0;
-  margin-top: 40px;
+  border-radius: 0 40px;
+  max-width: var(--largura);
+  margin: 0 auto;
 }
 
 #quem-somos {
@@ -124,8 +150,9 @@ body {
 }
 
 #valores {
-  place-items: center;
   border-radius: 0 40px;
+  place-items: center;
+  margin: 30px auto ;
 }
 
 #conteudo-missao,
