@@ -60,6 +60,10 @@ public class UsuarioService {
     	return null;
     }
 
+    public Optional<Usuario> autenticar(String email, String senha) {
+        return repo.findByEmailAndSenha(email, senha);
+    }
+
 	
 	public List<Usuario> listarUsuarios(){
 		return repo.findAll();

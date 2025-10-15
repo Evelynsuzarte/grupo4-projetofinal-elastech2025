@@ -8,7 +8,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import com.example.ead_financas.dto.UsuarioDTO;
+import com.example.ead_financas.dto.*;
 import com.example.ead_financas.model.entity.Usuario;
 import com.example.ead_financas.service.UsuarioService;
 import jakarta.validation.Valid;
@@ -17,8 +17,6 @@ import jakarta.validation.Valid;
 @RestController
 @RequestMapping("usuarios")
 public class UsuarioController {
-	
-	
 	
 	@Autowired
 	private UsuarioService usuarioService;
@@ -81,7 +79,21 @@ public class UsuarioController {
 	                             .body("Erro inesperado ao criar usuário.");
 	    }
 	}
+	
 
+	@PostMapping("/login")
+    public ResponseEntity<?> login(@RequestBody LoginDTO loginDTO) {
+        Optional<Usuario> usuario = usuarioService.autenticar(loginDTO.getEmail(), loginDTO.getSenha());
+
+        if (usuario.isPresent()) {
+            Usuario u = usuario.get();
+            u.setSenha(null); // nunca retorna a senha
+            return ResponseEntity.ok(u);
+        } else {
+            return ResponseEntity.status(401).body("Email ou senha incorretos");
+        }
+    }
+	
 	
 	
 	@PutMapping("/editar/{id}")
@@ -123,6 +135,9 @@ public class UsuarioController {
 	                             .body("Erro inesperado ao excluir usuário.");
 	    }
 	}
+	
+	
+	
 
 
 }
