@@ -11,7 +11,7 @@ import jakarta.validation.constraints.*;
 
 public class UsuarioDTO {
 	
-	@NotBlank(message = "É obrigatório o nome do usuário")		
+	@NotBlank(message = "É obrigatório preencher o nome do usuário.")		
 	@Size(min = 6, max = 100, message = "deve ter no mínimo 5 caracteres e no máximo 100 caracteres")
 	@Pattern(regexp =  "^(?!.* {3,}).+$", message = "Não pode conter três ou mais espaços seguidos")
 	private String nome;
@@ -21,9 +21,8 @@ public class UsuarioDTO {
 	@Pattern(regexp =  "^(?!.*\\\\s).{8,30}$", message = "Não pode conter espaços em branco.")
 	private String senha;
 	
-	@NotBlank(message = "Obrigatório o titulo")	
-	@Pattern(regexp = "^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,6}$",
-			message = "O formato do e-mail é inválido. Formato esperado: nome@dominio.com")
+	@NotBlank(message = "É obrigatório preencher o email.")	
+	@Email(message = "O formato do e-mail é inválido. Formato esperado: nome@dominio.com")
 	private String email;
 	
 	@NotBlank(message = "Obrigatório designar perfil.")	
