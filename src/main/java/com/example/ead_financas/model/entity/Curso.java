@@ -21,7 +21,12 @@ public class Curso {
 
   private  String caminhoImagem;
 
+  @ManyToOne
+  @JoinColumn(name = "professor_id")
+  private Usuario professor;
 
+  @OneToMany(mappedBy = "curso")
+  private List<Matricula> matriculas = new ArrayList<>();
 
   public Curso() {
   }
@@ -84,10 +89,4 @@ public class Curso {
     this.matriculas = matriculas;
   }
 
-  @ManyToOne
-  @JoinColumn(name = "professor_id")
-  private Usuario professor;
-
-  @OneToMany(mappedBy = "curso")
-  private List<Matricula> matriculas = new ArrayList<>();
 }
