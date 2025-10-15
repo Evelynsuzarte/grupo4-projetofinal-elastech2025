@@ -13,17 +13,17 @@ import java.time.LocalDate;
 @Table(name = "matriculas")
 public class Matricula {
 
-    @Id
-    @GeneratedValue
-    public Long id;
+  @Id
+  @GeneratedValue
+  public Long id;
 
-    @ManyToOne
-    @JoinColumn(name = "aluno_id")
-    private Usuario aluno;
+  @ManyToOne
+  @JoinColumn(name = "aluno_id")
+  private Usuario aluno;
 
-    @ManyToOne
-    @JoinColumn(name = "curso_id")
-    private Curso curso;
+  @ManyToOne
+  @JoinColumn(name = "curso_id")
+  private Curso curso;
 
     private LocalDate dataMatricula;
 
@@ -34,8 +34,8 @@ public class Matricula {
 
 
 
-    public Matricula() {
-    }
+  public Matricula() {
+  }
 
     public Matricula(Long id, Usuario aluno, Curso curso, LocalDate dataMatricula) {
         this.id = id;
@@ -46,29 +46,29 @@ public class Matricula {
 
 
 
-    public Long getId() {
-        return id;
-    }
+  public Long getId() {
+    return id;
+  }
 
-    public void setId(Long id) {
-        this.id = id;
-    }
+  public void setId(Long id) {
+    this.id = id;
+  }
 
-    public Usuario getAluno() {
-        return aluno;
-    }
+  public Usuario getAluno() {
+    return aluno;
+  }
 
-    public void setAluno(Usuario aluno) {
-        this.aluno = aluno;
-    }
+  public void setAluno(Usuario aluno) {
+    this.aluno = aluno;
+  }
 
-    public Curso getCurso() {
-        return curso;
-    }
+  public Curso getCurso() {
+    return curso;
+  }
 
-    public void setCurso(Curso curso) {
-        this.curso = curso;
-    }
+  public void setCurso(Curso curso) {
+    this.curso = curso;
+  }
 
     public LocalDate getDataMatricula() {
         return dataMatricula;
