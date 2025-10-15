@@ -30,6 +30,12 @@ public class Usuario {
   @Column(unique = true)
   private String email;
 
+  @OneToMany(mappedBy = "professor")
+  private List<Curso> cursosCriados = new ArrayList<>();
+
+
+  @OneToMany(mappedBy = "aluno")
+  private List<Matricula> matriculas = new ArrayList<>();
   
   public Usuario() {
   }
@@ -100,10 +106,4 @@ public class Usuario {
 	  this.email = email;
   }
 
-  @OneToMany(mappedBy = "professor")
-  private List<Curso> cursosCriados = new ArrayList<>();
-
-
-  @OneToMany(mappedBy = "aluno")
-  private List<Matricula> matriculas = new ArrayList<>();
 }
