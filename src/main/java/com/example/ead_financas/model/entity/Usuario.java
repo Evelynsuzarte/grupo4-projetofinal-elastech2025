@@ -27,15 +27,19 @@ public class Usuario {
   @Enumerated(EnumType.STRING)
   private Perfil perfil;
 
+  @Column(unique = true)
+  private String email;
 
+  
   public Usuario() {
   }
 
-  public Usuario(long id, String nome, String senha, Perfil perfil) {
+  public Usuario(long id, String nome, String senha, Perfil perfil, String email) {
     this.id = id;
     this.nome = nome;
     this.senha = senha;
     this.perfil = perfil;
+    this.email = email;
   }
 
 
@@ -88,6 +92,13 @@ public class Usuario {
     this.matriculas = matriculas;
   }
 
+  public String getEmail() {
+	  return email;
+  }
+  
+  public void setEmail(String email) {
+	  this.email = email;
+  }
 
   @OneToMany(mappedBy = "professor")
   private List<Curso> cursosCriados = new ArrayList<>();

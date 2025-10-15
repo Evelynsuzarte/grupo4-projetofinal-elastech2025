@@ -8,7 +8,7 @@ import org.springframework.stereotype.Service;
 import com.example.ead_financas.model.entity.Curso;
 import com.example.ead_financas.model.entity.Matricula;
 import com.example.ead_financas.model.entity.Usuario;
-import com.example.ead_financas.repository.MatriculaRepository;
+import com.example.ead_financas.model.repository.MatriculaRepository;
 
 import jakarta.transaction.Transactional;
 
@@ -35,15 +35,29 @@ public class MatriculaService {
 		return repository.findAll();
 	}
 
-	public Matricula atualizarMatricula(Long id, Matricula matriculaAtualizada) {
+	
+//	Provalmente é pra retornar o ID da matrícula que gera um novo a cada inscrição
+//	TIRAR DÚVIDA COM PROFESSOR
+//	public Matricula atualizarMatricula(Long id, Matricula matriculaAtualizada) {
+//		Matricula matricula = repository.findById(id).orElseThrow(() -> new RuntimeException("Matricula inexistente."));
+//
+//		matricula.setId(matriculaAtualizada.getId());
+//		matricula.setCurso(matriculaAtualizada.getCurso());
+//
+//		return repository.save(matricula);
+//	}
+
+	
+	
+	public Matricula atualizarID(Long id, Matricula matriculaAtualizada) {
 		Matricula matricula = repository.findById(id).orElseThrow(() -> new RuntimeException("Matricula inexistente."));
-
-		matricula.setNumeroMatricula(matriculaAtualizada.getNumeroMatricula());
+	
+		matricula.setId(matriculaAtualizada.getId());
 		matricula.setCurso(matriculaAtualizada.getCurso());
-
+	
 		return repository.save(matricula);
 	}
-
+	
 	public void deletar(Long id) {
 		repository.deleteById(id);
 	}

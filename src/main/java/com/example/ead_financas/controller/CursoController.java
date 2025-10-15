@@ -15,10 +15,11 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.example.ead_financas.dto.CursoDTO;
 import com.example.ead_financas.model.entity.Curso;
-import com.example.ead_financas.repository.CursoRepository;
+import com.example.ead_financas.model.repository.CursoRepository;
 import com.example.ead_financas.service.CursoService;
 
 import jakarta.validation.Valid;
+
 
 @RestController
 @RequestMapping("/cursos")

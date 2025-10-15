@@ -19,9 +19,7 @@ import com.example.ead_financas.dto.MatriculaDTO;
 import com.example.ead_financas.model.entity.Curso;
 import com.example.ead_financas.model.entity.Matricula;
 import com.example.ead_financas.model.entity.Usuario;
-import com.example.ead_financas.repository.CursoRepository;
-import com.example.ead_financas.repository.MatriculaRepository;
-import com.example.ead_financas.repository.UsuarioRepository;
+import com.example.ead_financas.model.repository.*;
 import com.example.ead_financas.service.MatriculaService;
 
 import jakarta.validation.Valid;
@@ -52,7 +50,7 @@ public class MatriculaController {
                     .orElseThrow(() -> new RuntimeException("Curso não encontrado."));
 
             Matricula matricula = new Matricula();
-            matricula.setNumeroMatricula(dto.getNumeroMatricula());
+            matricula.setId(dto.getId());
             matricula.setAluno(aluno);
             matricula.setCurso(curso);
 
@@ -74,7 +72,7 @@ public class MatriculaController {
     @GetMapping("/{id}")
     public ResponseEntity<?> buscarPorId(@PathVariable Long id) {
         return matriculaRepo.findById(id)
-                .map(ResponseEntity::ok)
+                .<ResponseEntity<?>>map(ResponseEntity::ok)
                 .orElse(ResponseEntity.status(HttpStatus.NOT_FOUND).body("Matrícula não encontrada."));
     }
 
@@ -87,11 +85,11 @@ public class MatriculaController {
                     .orElseThrow(() -> new RuntimeException("Curso não encontrado."));
 
             Matricula matriculaAtualizada = new Matricula();
-            matriculaAtualizada.setNumeroMatricula(dto.getNumeroMatricula());
+            matriculaAtualizada.setId(dto.getId());
             matriculaAtualizada.setAluno(aluno);
             matriculaAtualizada.setCurso(curso);
 
-            Matricula atualizada = matriculaService.atualizarMatricula(id, matriculaAtualizada);
+            Matricula atualizada = matriculaService.atualizarID(id, matriculaAtualizada);
             return ResponseEntity.ok(atualizada);
         } catch (RuntimeException e) {
             return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(e.getMessage());
