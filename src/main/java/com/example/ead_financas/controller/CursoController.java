@@ -21,7 +21,7 @@ import com.example.ead_financas.service.CursoService;
 
 import jakarta.validation.Valid;
 
-
+@Valid
 @RestController
 @RequestMapping("/cursos")
 public class CursoController {

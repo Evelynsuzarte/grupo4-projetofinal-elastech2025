@@ -25,9 +25,9 @@ public class UsuarioDTO {
 	@Email(message = "O formato do e-mail é inválido. Formato esperado: nome@dominio.com")
 	private String email;
 	
-	@NotBlank(message = "Obrigatório designar perfil.")	
-	@Pattern(regexp = "^(ALUNO|PROFESSOR)$",
-	        message = "O perfil deve ser 'ALUNO' ou 'PROFESSOR'.")
+	@NotNull(message = "Obrigatório designar perfil.")	
+//	@Pattern(regexp = "^(ALUNO|PROFESSOR)$",
+//	        message = "O perfil deve ser 'ALUNO' ou 'PROFESSOR'.")
 	private Perfil perfil;
 	
 	

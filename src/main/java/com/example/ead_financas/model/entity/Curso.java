@@ -4,6 +4,8 @@ import jakarta.persistence.*;
 import java.util.*;
 
 
+
+
 @Entity
 @Table(name = "cursos")
 public class Curso {
@@ -11,11 +13,12 @@ public class Curso {
   @GeneratedValue(strategy = GenerationType.IDENTITY)
   private Long id;
 
+  @Column(unique = true)
   private String titulo;
 
 
   @Lob
-  @Column(columnDefinition = "TEXT")
+  @Column(columnDefinition = "TEXT", unique = true)
   private String descricao;
 
 

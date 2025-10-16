@@ -26,7 +26,7 @@ import jakarta.validation.Valid;
 
 @RestController
 @RequestMapping("matriculas")
-@Validated
+@Valid
 public class MatriculaController {
 
     @Autowired
