@@ -1,8 +1,8 @@
 :root {
   --fundo: #f7f9fb;
   --largura: 1100px;
-  --principal: #f4d03f;
-  --destaque: #f4d03f;
+  --principal: #fcec74;
+  --destaque: #fcec74;
   --texto: #1f2933;
   --suave: #7d8a93;
   --cartao: #fff;
@@ -112,22 +112,6 @@ button:hover {
 
 .link:hover {
   text-decoration: underline;
-}
-
-body.modo-escuro {
-  --fundo: #1b1b1b;
-  --texto: #f0f0f0;
-  --cartao: #2a2a2a;
-  --suave: #aaa;
-  --principal: #FFE72D;
-}
-
-body.modo-contraste {
-  --fundo: #000;
-  --texto: #fff;
-  --cartao: #000;
-  --principal: #FFE72D;
-  --suave: #fff;
 }
 
 @media (max-width: 480px) {

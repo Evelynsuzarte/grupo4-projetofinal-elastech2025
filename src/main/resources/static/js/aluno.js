@@ -1,16 +1,33 @@
 document.addEventListener("DOMContentLoaded", () => {
   const tabela = document.getElementById("tabela-matriculas");
-  const usuario = JSON.parse(localStorage.getItem("usuarioLogado"));
+  const usuarioLogado = localStorage.getItem("usuarioLogado");
 
-  if (!usuario) {
-    alert("Você precisa estar logado para acessar o portal do aluno.");
-    window.location.href = "login.html";
+  if (!usuarioLogado) {
+    setTimeout(() => {
+      alert("Você precisa estar logado para acessar o portal do aluno.");
+      window.location.href = "login.html";
+    }, 300);
     return;
   }
 
-  const alunoId = usuario.id;
+  const usuario = JSON.parse(usuarioLogado);
 
-  fetch(`http://localhost:8080/matriculas/aluno/${alunoId}`)
+  const nomeUsuarioSpan = document.getElementById("nomeUsuario");
+  const botaoEntrar = document.getElementById("botaoEntrar");
+  const usuarioInfo = document.getElementById("usuarioInfo");
+
+  if (nomeUsuarioSpan && botaoEntrar && usuarioInfo) {
+    nomeUsuario.textContent = `Olá, ${usuario.nome}!`;
+    botaoEntrar.style.display = "none";
+    usuarioInfo.style.display = "flex";
+
+    document.getElementById("botaoSair").addEventListener("click", () => {
+      localStorage.removeItem("usuarioLogado");
+      window.location.href = "login.html";
+    });
+  }
+
+  fetch(`http://localhost:8080/matriculas/aluno/${usuario.id}`)
     .then(resp => {
       if (!resp.ok) throw new Error("Erro ao buscar matrículas");
       return resp.json();
@@ -28,27 +45,12 @@ document.addEventListener("DOMContentLoaded", () => {
         tr.innerHTML = `
           <td>${m.curso?.titulo || "Sem título"}</td>
           <td>${m.curso?.professor?.nome || "N/A"}</td>
-          <td>${m.status || "Ativo"}</td>
-          <td>
-            <button class="botao botao-borda" onclick="cancelarMatricula(${m.id})">Cancelar</button>
-          </td>
+          <td>${new Date(m.dataMatricula).toLocaleDateString("pt-BR")}</td>
         `;
         tabela.appendChild(tr);
       });
     })
-    .catch(err => {
+    .catch(() => {
       tabela.innerHTML = "<tr><td colspan='4'>Erro ao carregar matrículas.</td></tr>";
     });
 });
-
-function cancelarMatricula(id) {
-  if (!confirm("Tem certeza que deseja cancelar esta matrícula?")) return;
-
-  fetch(`http://localhost:8080/matriculas/${id}`, { method: "DELETE" })
-    .then(resp => {
-      if (!resp.ok) throw new Error("Erro ao cancelar matrícula");
-      alert("Matrícula cancelada com sucesso!");
-      location.reload();
-    })
-    .catch(err => alert("Erro ao cancelar matrícula: " + err.message));
-}

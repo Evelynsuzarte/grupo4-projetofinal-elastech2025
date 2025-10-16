@@ -1,60 +1,124 @@
 document.addEventListener("DOMContentLoaded", () => {
-  const lista = document.getElementById("lista-cursos");
-  const usuario = JSON.parse(localStorage.getItem("usuarioLogado"));
-  const botaoSair = document.getElementById("botaoSair");
+  const usuarioLogado = localStorage.getItem("usuarioLogado");
 
-  if (!usuario || usuario.perfil !== "PROFESSOR") {
-    alert("Apenas professores podem acessar este portal.");
-    window.location.href = "login.html";
+  if (!usuarioLogado) {
+    setTimeout(() => {
+      alert("Você precisa estar logado para acessar o portal do professor.");
+      window.location.href = "login.html";
+    }, 300);
     return;
   }
 
-  botaoSair.addEventListener("click", () => {
-    localStorage.removeItem("usuarioLogado");
-    window.location.href = "login.html";
+  const usuario = JSON.parse(usuarioLogado);
+
+  const nomeUsuarioSpan = document.getElementById("nomeUsuario");
+  const botaoEntrar = document.getElementById("botaoEntrar");
+  const usuarioInfo = document.getElementById("usuarioInfo");
+
+  if (nomeUsuarioSpan && botaoEntrar && usuarioInfo) {
+    nomeUsuario.textContent = `Olá, ${usuario.nome}!`;
+    botaoEntrar.style.display = "none";
+    usuarioInfo.style.display = "flex";
+
+    document.getElementById("botaoSair").addEventListener("click", () => {
+      localStorage.removeItem("usuarioLogado");
+      window.location.href = "login.html";
+    });
+  }
+
+  const tabelaCursos = document.getElementById("tabela-cursos");
+  const formCurso = document.getElementById("formCurso");
+
+  carregarCursos();
+
+  function carregarCursos() {
+    fetch(`http://localhost:8080/cursos/professor/${usuario.id}`)
+      .then(resp => {
+        if (!resp.ok) throw new Error();
+        return resp.json();
+      })
+      .then(cursos => {
+        tabelaCursos.innerHTML = "";
+
+        if (!cursos.length) {
+          tabelaCursos.innerHTML = "<tr><td colspan='4'>Nenhum curso cadastrado.</td></tr>";
+          return;
+        }
+
+        cursos.forEach(curso => {
+          const tr = document.createElement("tr");
+          tr.innerHTML = `
+            <td>${curso.titulo}</td>
+            <td>${curso.descricao}</td>
+            <td>
+              <button class="botao botao-borda" onclick="verAlunos(${curso.id})">Ver alunos</button>
+              <button class="botao botao-borda" onclick="editarCurso(${curso.id}, '${curso.titulo}', '${curso.descricao}')">Editar</button>
+            </td>
+          `;
+          tabelaCursos.appendChild(tr);
+        });
+      })
+      .catch(() => {
+        tabelaCursos.innerHTML = "<tr><td colspan='4'>Erro ao carregar cursos.</td></tr>";
+      });
+  }
+
+  formCurso.addEventListener("submit", e => {
+    e.preventDefault();
+    const titulo = document.getElementById("titulo").value.trim();
+    const descricao = document.getElementById("descricao").value.trim();
+
+    if (!titulo || !descricao) {
+      alert("Preencha todos os campos!");
+      return;
+    }
+
+    fetch("http://localhost:8080/cursos/adicionar", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ titulo, descricao, professorId: usuario.id }),
+    })
+      .then(resp => {
+        if (!resp.ok) throw new Error();
+        alert("Curso criado com sucesso!");
+        formCurso.reset();
+        carregarCursos();
+      })
+      .catch(() => alert("Erro ao criar curso."));
   });
 
-  const professorId = usuario.id;
+  window.editarCurso = (id, titulo, descricao) => {
+    const novoTitulo = prompt("Novo título:", titulo);
+    const novaDescricao = prompt("Nova descrição:", descricao);
+    if (!novoTitulo || !novaDescricao) return;
 
-  fetch(`http://localhost:8080/cursos/professor/${professorId}`)
-    .then(resp => {
-      if (!resp.ok) throw new Error("Erro ao buscar cursos");
-      return resp.json();
+    fetch(`http://localhost:8080/cursos/${id}`, {
+      method: "PUT",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ titulo: novoTitulo, descricao: novaDescricao }),
     })
-    .then(cursos => {
-      lista.innerHTML = "";
+      .then(resp => {
+        if (!resp.ok) throw new Error();
+        alert("Curso atualizado!");
+        carregarCursos();
+      })
+      .catch(() => alert("Erro ao atualizar curso."));
+  };
 
-      if (!cursos.length) {
-        lista.innerHTML = "<p>Nenhum curso cadastrado ainda.</p>";
-        return;
-      }
-
-      cursos.forEach(curso => {
-        const card = document.createElement("article");
-        card.classList.add("cartao");
-        card.innerHTML = `
-          <img src="${curso.caminhoImagem ? "http://localhost:8080" + curso.caminhoImagem : "../imagens/sem-imagem.jpg"}" class="cartao-imagem" alt="Imagem do curso">
-          <div class="cartao-corpo">
-            <h3 class="cartao-titulo">${curso.titulo}</h3>
-            <p class="cartao-descricao">${curso.descricao}</p>
-            <div class="cartao-acoes">
-              <button class="botao botao-borda" onclick="verMatriculas(${curso.id})">Ver Alunos</button>
-              <button class="botao botao-principal" onclick="editarCurso(${curso.id})">Editar</button>
-            </div>
-          </div>
-        `;
-        lista.appendChild(card);
-      });
-    })
-    .catch(err => {
-      lista.innerHTML = "<p>Erro ao carregar cursos.</p>";
-    });
+  window.verAlunos = id => {
+    fetch(`http://localhost:8080/matriculas/curso/${id}`)
+      .then(resp => {
+        if (!resp.ok) throw new Error();
+        return resp.json();
+      })
+      .then(alunos => {
+        if (!alunos.length) {
+          alert("Nenhum aluno matriculado.");
+          return;
+        }
+        const lista = alunos.map(a => `- ${a.aluno.nome}`).join("\n");
+        alert(`Alunos matriculados:\n\n${lista}`);
+      })
+      .catch(() => alert("Erro ao carregar alunos."));
+  };
 });
-
-function verMatriculas(cursoId) {
-  window.location.href = `matriculas-curso.html?cursoId=${cursoId}`;
-}
-
-function editarCurso(id) {
-  window.location.href = `editar-curso.html?id=${id}`;
-}

@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Portal do Professor - Instituto Luiz Freitas</title>
+  <title>Portal do Professor - Instituto Luiz Frias</title>
 
   <link rel="stylesheet" href="../css/portal-professor.css">
   <link rel="icon" href="../imagens/favicon.png">
@@ -37,24 +37,49 @@
   <main class="container conteudo-principal">
     <section>
       <h1>Meus Cursos</h1>
-      <p>Gerencie os cursos que você ministra.</p>
+      <p>Gerencie seus cursos e veja seus alunos matriculados.</p>
 
-      <div class="acoes">
-        <a href="criar-curso.html" class="botao botao-principal">+ Criar Novo Curso</a>
-      </div>
+      <button class="botao botao-principal" id="novoCursoBtn">+ Novo Curso</button>
 
-      <div id="lista-cursos" class="grade">
-        <p>Carregando cursos...</p>
+      <div class="tabela-wrapper">
+        <table class="tabela">
+          <thead>
+            <tr>
+              <th>Título</th>
+              <th>Descrição</th>
+              <th>Ações</th>
+            </tr>
+          </thead>
+          <tbody id="tabela-cursos">
+            <tr><td colspan="3">Carregando...</td></tr>
+          </tbody>
+        </table>
       </div>
+    </section>
+
+    <section id="form-curso" style="display: none;">
+      <h2 id="titulo-form">Criar Novo Curso</h2>
+      <form id="cursoForm">
+        <input type="hidden" id="cursoId" />
+
+        <label for="titulo">Título</label>
+        <input type="text" id="titulo" required />
+
+        <label for="descricao">Descrição</label>
+        <textarea id="descricao" required></textarea>
+
+        <button type="submit" class="botao botao-principal">Salvar</button>
+      </form>
     </section>
   </main>
 
   <footer class="rodape">
     <div class="container rodape-conteudo">
-      <p>© Instituto Luiz Freitas — Portal do Professor</p>
+      <p>© Instituto Luiz Frias — Portal do Professor</p>
     </div>
   </footer>
 
+  <script src="../js/index.js"></script>
   <script src="../js/professor.js"></script>
 </body>
 </html>

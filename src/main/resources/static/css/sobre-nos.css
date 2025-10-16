@@ -1,7 +1,8 @@
 :root {
   --fundo: #f7f9fb;
   --largura: 1100px;
-  --principal: #f4d03f;
+  --principal: #fcec74;
+  --destaque: #fcec74;
   --texto: #1f2933;
   --suave: #7d8a93;
   --cartao: #fff;
@@ -9,7 +10,6 @@
   --sombra: 0 6px 18px rgba(16, 24, 32, 0.08);
 }
 
-/* Reset */
 * {
   margin: 0;
   padding: 0;
@@ -78,10 +78,11 @@ body {
 .botao-borda {
   background: transparent;
   border: 1px solid rgba(0, 0, 0, 0.1);
+  background: var(--principal);
 }
 
 .botao-principal {
-  background: var(--destaque);
+  background: var(--principal);
   color: #111;
 }
 
@@ -96,7 +97,6 @@ body {
 }
 
 
-/* Conteúdo principal */
 .sobre {
   padding: 60px 0;
 }
@@ -147,7 +147,6 @@ body {
   order: -1;
 }
 
-/* Rodapé */
 .rodape {
   border-top: 1px solid rgba(0, 0, 0, 0.05);
   padding: 18px 0;
@@ -161,7 +160,6 @@ body {
   margin-left: 10px;
 }
 
-/* Responsivo */
 @media (max-width: 800px) {
   .bloco {
     flex-direction: column;

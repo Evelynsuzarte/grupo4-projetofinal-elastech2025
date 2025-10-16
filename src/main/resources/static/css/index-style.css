@@ -1,8 +1,8 @@
 :root {
   --fundo: #eaeaea;
   --largura: 1100px;
-  --principal: #FFE72D;
-  --destaque: #FFE72D;
+  --principal: #fcec74;
+  --destaque: #fcec74;
   --texto: #1f2933;
   --suave: #7d8a93;
   --cartao: #fff;
@@ -78,6 +78,7 @@ body {
 .botao-borda {
   background: transparent;
   border: 1px solid rgba(0, 0, 0, 0.1);
+  background: var(--destaque);
 }
 
 .botao-principal {
@@ -95,9 +96,6 @@ body {
   font-weight: 600;
 }
 
-/* =========================================
-   BANNER
-========================================= */
 .banner {
   display: flex;
   justify-content: center;

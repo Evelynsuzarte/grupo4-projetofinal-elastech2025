@@ -6,6 +6,9 @@ document.addEventListener("DOMContentLoaded", () => {
   const nomeUsuario = document.getElementById("nomeUsuario");
   const botaoSair = document.getElementById("botaoSair");
 
+  const linkPortalAluno = document.querySelector('a[href="../html/portal-aluno.html"]');
+  const linkPortalProfessor = document.querySelector('a[href="../html/portal-professor.html"]');
+
   function atualizarCabecalho() {
     const usuarioLogado = JSON.parse(localStorage.getItem("usuarioLogado"));
 
@@ -13,9 +16,24 @@ document.addEventListener("DOMContentLoaded", () => {
       botaoEntrar.style.display = "none";
       usuarioInfo.style.display = "flex";
       nomeUsuario.textContent = `Olá, ${usuarioLogado.nome}!`;
+
+      if (usuarioLogado.perfil === "ALUNO") {
+        linkPortalAluno.style.display = "inline-block";
+        linkPortalProfessor.style.display = "none";
+      } else if (usuarioLogado.perfil === "PROFESSOR") {
+        linkPortalProfessor.style.display = "inline-block";
+        linkPortalAluno.style.display = "none";
+      } else {
+        linkPortalAluno.style.display = "none";
+        linkPortalProfessor.style.display = "none";
+      }
+
     } else {
       botaoEntrar.style.display = "inline-block";
       usuarioInfo.style.display = "none";
+
+      linkPortalAluno.style.display = "none";
+      linkPortalProfessor.style.display = "none";
     }
   }
 
@@ -83,7 +101,7 @@ document.addEventListener("DOMContentLoaded", () => {
             .then(() => {
               alert(`Inscrição realizada com sucesso no curso "${curso.titulo}"!`);
             })
-            .catch(error => {
+            .catch(() => {
               alert("Erro ao realizar inscrição. Tente novamente mais tarde.");
             });
         });
@@ -91,7 +109,7 @@ document.addEventListener("DOMContentLoaded", () => {
         grade.appendChild(card);
       });
     })
-    .catch(error => {
+    .catch(() => {
       grade.innerHTML = "<p>Erro ao carregar os cursos. Tente novamente mais tarde.</p>";
     });
 });
