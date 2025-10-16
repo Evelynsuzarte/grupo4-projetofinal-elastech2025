@@ -95,7 +95,7 @@ document.addEventListener("DOMContentLoaded", () => {
           const alunoId = usuarioLogado.id;
           const cursoId = curso.id;
 
-          fetch(`http://localhost:8080/matriculas?alunoId=${alunoId}&cursoId=${cursoId}`, {
+          fetch(`http://localhost:8080/matriculas/adicionar`, {
             method: "POST",
           })
             .then(response => {
