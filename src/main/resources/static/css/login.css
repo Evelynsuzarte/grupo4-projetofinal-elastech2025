@@ -1,0 +1,146 @@
+:root {
+  --fundo: #f7f9fb;
+  --largura: 1100px;
+  --principal: #f4d03f;
+  --destaque: #f4d03f;
+  --texto: #1f2933;
+  --suave: #7d8a93;
+  --cartao: #fff;
+  --raio: 12px;
+  --sombra: 0 6px 18px rgba(16, 24, 32, 0.08);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: var(--fundo);
+  color: var(--texto);
+  font-family: system-ui, Arial, sans-serif;
+  line-height: 1.5;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+}
+
+.login-container {
+  background: var(--cartao);
+  width: 100%;
+  max-width: 420px;
+  padding: 40px;
+  border-radius: var(--raio);
+  box-shadow: var(--sombra);
+  text-align: center;
+  animation: fadeIn 0.4s ease;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(15px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.login-container img {
+  width: 100px;
+  border-radius: 10%;
+  margin-bottom: 20px;
+}
+
+.login-container h1 {
+  font-size: 24px;
+  margin-bottom: 10px;
+  color: var(--texto);
+}
+
+.login-container p {
+  color: var(--suave);
+  margin-bottom: 25px;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+input {
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: var(--raio);
+  font-size: 15px;
+  outline: none;
+  transition: border 0.2s, box-shadow 0.2s;
+}
+
+input:focus {
+  border-color: var(--destaque);
+  box-shadow: 0 0 0 3px rgba(244, 208, 63, 0.3);
+}
+
+button {
+  border: none;
+  padding: 12px;
+  border-radius: var(--raio);
+  background: var(--principal);
+  color: #111;
+  font-weight: 700;
+  cursor: pointer;
+  transition: transform 0.2s, background 0.3s;
+}
+
+button:hover {
+  background: #ffeb7a;
+  transform: translateY(-2px);
+}
+
+.link {
+  color: var(--texto);
+  text-decoration: none;
+  font-weight: 500;
+  display: inline-block;
+  margin-top: 12px;
+}
+
+.link:hover {
+  text-decoration: underline;
+}
+
+body.modo-escuro {
+  --fundo: #1b1b1b;
+  --texto: #f0f0f0;
+  --cartao: #2a2a2a;
+  --suave: #aaa;
+  --principal: #FFE72D;
+}
+
+body.modo-contraste {
+  --fundo: #000;
+  --texto: #fff;
+  --cartao: #000;
+  --principal: #FFE72D;
+  --suave: #fff;
+}
+
+@media (max-width: 480px) {
+  .login-container {
+    padding: 25px;
+    border-radius: 10px;
+  }
+
+  .login-container h1 {
+    font-size: 20px;
+  }
+
+  input, button {
+    font-size: 14px;
+  }
+}

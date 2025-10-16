@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cadastro - IFL</title>
+  <link rel="stylesheet" href="../css/cadastro.css" />
+  <link rel="icon" href="../imagens/favicon.png" />
+</head>
+
+<body>
+  <div class="cadastro-container">
+    <img src="../imagens/logo.jpg" alt="Logo Instituto Luiz Frias" />
+    <h1>Crie sua conta</h1>
+    <p>Preencha seus dados para começar</p>
+
+    <form id="formCadastro">
+      <input type="text" id="nome" placeholder="Nome completo" required />
+      <input type="email" id="email" placeholder="E-mail" required />
+      <input type="password" id="senha" placeholder="Senha" required />
+
+      <select id="perfil" required>
+        <option value="">Selecione seu perfil</option>
+        <option value="ALUNO">Aluno</option>
+        <option value="PROFESSOR">Professor</option>
+      </select>
+
+      <button type="submit">Cadastrar</button>
+    </form>
+
+    <a href="login.html" class="link">Já tem uma conta? Faça login</a>
+  </div>
+
+  <script src="../js/cadastro.js"></script>
+</body>
+</html>

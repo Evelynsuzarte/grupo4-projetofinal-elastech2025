@@ -3,202 +3,58 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="stylesheet" href="../css/index-style.css">
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=stat_minus_1" />
-  <title> IFL - Cursos </title>
+  <title>Catálogo de Cursos - Instituto Luiz Frias</title>
+
+  <link rel="stylesheet" href="../css/index-style.css" />
+  <link rel="icon" href="../imagens/favicon.png" />
 </head>
 
 <body>
-  <!-- Cabeçalho -->
   <header class="cabecalho">
     <div class="container cabecalho-conteudo">
       <div class="marca">
-        <div><a href="index.html"><img src="../imagens/logo.jpg"></a></div>
+        <a href="index.html">
+          <img src="../imagens/logo.jpg" alt="Logo Instituto Luiz Frias" />
+        </a>
       </div>
 
-        <nav class="menu">
-          <a href="index.html" class="link">Cursos</a>
-          <a href="sobre-nos.html" class="link">Quem somos</a>
-          <a href="portal-aluno.html" class="link">Portal do Aluno</a>
-          <a href="portal-professor.html" class="link">Portal do Professor</a>            
-          <button class="botao botao-principal">Entrar</button>
-        </nav>
-      </div>
-      <!-- botão de acessibilidade-->
-      <div id="controles-acessibilidade">
-        <button onclick="aumentarFonte()">A+</button>
-        <button onclick="diminuirFonte()">A−</button>
-        <button onclick="alternarContraste()">🔳 Contraste</button>
-        <button onclick="alternarModo()">🌙</button>
-      </div>
+      <nav class="menu">
+        <a href="../html/index.html" class="link ativo">Cursos</a>
+        <a href="../html/sobre-nos.html" class="link">Quem somos</a>
+        <a href="../html/portal-aluno.html" class="link">Portal do Aluno</a>
+        <a href="../html/portal-professor.html" class="link">Portal do Professor</a>
+
+        <button class="botao botao-borda" id="botaoEntrar">Entrar</button>
+
+        <div class="usuario-info" id="usuarioInfo" style="display: none;">
+          <span id="nomeUsuario"></span>
+          <button class="botao botao-borda" id="botaoSair">Sair</button>
+        </div>
+      </nav>
+    </div>
   </header>
 
-    <!--Seção inicial -->
-  <main>
-    <section class="inicio">
-      <div class="container inicio-conteudo">
-        <div class="inicio-texto">
-          <h1>Tudo que você precisa saber para iniciar e <span class="destaque">alavancar</span> sua vida <span
-              class="destaque secundaria">financeira</span></h1>
-          <p class="descricao">Cursos práticos e acessíveis, em parceria com SoulCode e PagBank.</p>
-        </div>
-      </div>
-    </section>
+  <section class="banner">
+    <img src="../imagens/banner.png" alt="Banner principal" class="banner-img" />
+  </section>
 
-    <!-- Catálogo -->
-    <section class="catalogo container">
-      <header class="secao-cabecalho">
-        <h2>Cursos em destaque</h2>
-        <p>Selecione um curso para saber mais e se inscrever</p>
-      </header>
+  <main class="container">
+    <section class="catalogo">
+      <h1>Catálogo de Cursos</h1>
+      <p>Conheça nossos cursos disponíveis e escolha o que mais combina com você.</p>
 
-      <div class="grade">
-        <!-- Card 1 -->
-        <article class="cartao">
-          <img src="../imagens/curso1.jpg" alt="Pequenos Investidores" class="cartao-imagem">
-          <div class="cartao-corpo">
-            <h3 class="cartao-titulo">Pequenos Investidores: Educação Financeira Infantil</h3>
-            <div class="cartao-texto">
-              <p class="cartao-descricao">Voltado para crianças a partir de 9 anos e para educadores ou responsáveis que desejam aprender a ensinar sobre finanças de forma simples e divertida. Este curso apresenta, de maneira lúdica, conceitos como o valor do dinheiro, moeda nacional e estrangeira e noções básicas de rendimento, despertando desde cedo a consciência financeira e o hábito de lidar com o dinheiro de forma responsável.</p>
-              <button class="ver-mais">
-                <span class="material-symbols-outlined">stat_minus_1</span>
-              </button>
-            </div>
-            <div class="cartao-detalhes">
-              <span class="etiqueta">Iniciação</span>
-              <span class="etiqueta neutra">30h</span>
-            </div>
-            <div class="cartao-acoes">
-              <button class="botao botao-borda">Detalhes</button>
-              <button class="botao botao-destaque">Inscrever-se</button>
-            </div>
-          </div>
-        </article>
-
-        <!-- Card 2 -->
-        <article class="cartao">
-          <img src="../imagens/curso2.jpg" alt="Gestão Financeira para Pequenos Negócios" class="cartao-imagem">
-          <div class="cartao-corpo">
-            <h3 class="cartao-titulo">Gestão Financeira para Pequenos Negócios</h3>
-            <div class="cartao-texto">
-              <p class="cartao-descricao">Aprenda a administrar as finanças do seu negócio de forma simples e eficiente. Este curso foi desenvolvido para pequenos empreendedores que desejam compreender os conceitos básicos de educação financeira empresarial, como controle de caixa, precificação, fluxo de caixa, custos e lucros. Com uma linguagem acessível e prática, você aprenderá a tomar decisões mais seguras e fortalecer a sustentabilidade do seu negócio.</p>
-              <button class="ver-mais">
-                <span class="material-symbols-outlined">stat_minus_1</span>
-              </button>
-            </div>
-            <div class="cartao-detalhes">
-              <span class="etiqueta">Intermediário</span>
-              <span class="etiqueta neutra">80h</span>
-            </div>
-            <div class="cartao-acoes">
-              <button class="botao botao-borda">Detalhes</button>
-              <button class="botao botao-destaque">Inscrever-se</button>
-            </div>
-          </div>
-        </article>
-
-        <!-- Card 3 -->
-        <article class="cartao">
-          <img src="../imagens/curso3.jpg" alt="Primeiros Passos em Educação Financeira" class="cartao-imagem">
-          <div class="cartao-corpo">
-            <h3 class="cartao-titulo">Primeiros Passos em Educação Financeira</h3>
-            <div class="cartao-texto">
-              <p class="cartao-descricao">Dê início à sua jornada no mundo dos investimentos com segurança e clareza. Este curso introdutório apresenta os fundamentos do mercado financeiro, explicando de forma descomplicada o uso do API (Análise de Perfil do Investidor), como planejar seus recursos de acordo com seus objetivos e prazos, e as diferenças entre renda fixa e renda variável.</p>
-              <button class="ver-mais">
-                <span class="material-symbols-outlined">stat_minus_1</span>
-              </button>
-            </div>
-            <div class="cartao-detalhes">
-              <span class="etiqueta">Básico</span>
-              <span class="etiqueta neutra">60h</span>
-            </div>
-            <div class="cartao-acoes">
-              <button class="botao botao-borda">Detalhes</button>
-              <button class="botao botao-destaque">Inscrever-se</button>
-            </div>
-          </div>
-        </article>
-
-        <!-- Card 4 -->
-        <article class="cartao">
-          <img src="../imagens/curso4.jpg" alt="Pequenos Investidores" class="cartao-imagem">
-          <div class="cartao-corpo">
-            <h3 class="cartao-titulo">Alavancando Investimentos: Estratégias para o Mercado</h3>
-            <div class="cartao-texto">
-              <p class="cartao-descricao">Destinado a quem já possui experiência no mundo dos investimentos e deseja ir além. Neste curso, você aprenderá a analisar o comportamento do mercado, tomar decisões estratégicas e superar índices de referência (benchmark) com segurança. Descubra como alavancar seus investimentos, atuar na bolsa de valores e desenvolver o pensamento analítico necessário para alcançar a independência financeira e resultados consistentes no longo prazo.</p>
-              <button class="ver-mais">
-                <span class="material-symbols-outlined">stat_minus_1</span>
-              </button>
-            </div>
-            <div class="cartao-detalhes">
-              <span class="etiqueta">Avançado</span>
-              <span class="etiqueta neutra">70h</span>
-            </div>
-            <div class="cartao-acoes">
-              <button class="botao botao-borda">Detalhes</button>
-              <button class="botao botao-destaque">Inscrever-se</button>
-            </div>
-          </div>
-        </article>
-
-        <!-- Card 5 -->
-        <article class="cartao">
-          <img src="../imagens/curso5.jpg" alt="Pequenos Investidores" class="cartao-imagem">
-          <div class="cartao-corpo">
-            <h3 class="cartao-titulo">Reconstruindo sua Saúde Financeira</h3>
-            <div class="cartao-texto">
-              <p class="cartao-descricao">Recupere o equilíbrio das suas finanças e retome o controle da sua vida econômica. Neste curso, você aprenderá estratégias para sair das dívidas, renegociar de forma inteligente, evitar juros altos e reorganizar seu orçamento após a quitação. Além disso, apresentamos ideias práticas de pequenos projetos para geração de renda extra, ajudando você a construir uma nova fase financeira com mais segurança e autonomia.</p>
-              <button class="ver-mais">
-                  <span class="material-symbols-outlined">stat_minus_1</span>
-              </button>
-            </div>
-            <div class="cartao-detalhes">
-              <span class="etiqueta">Iniciação</span>
-              <span class="etiqueta neutra">40h</span>
-            </div>
-            <div class="cartao-acoes">
-              <button class="botao botao-borda">Detalhes</button>
-              <button class="botao botao-destaque">Inscrever-se</button>
-            </div>
-          </div>
-        </article>
-
-        <!-- Card 6 -->
-        <article class="cartao">
-          <img src="../imagens/curso6.jpg" alt="Pequenos Investidores" class="cartao-imagem">
-          <div class="cartao-corpo">
-            <h3 class="cartao-titulo">Certificação Financeira: Sua Porta de Entrada no Mercado</h3>
-            <div class="cartao-texto">
-              <p class="cartao-descricao">Destaque-se no mercado financeiro com certificações reconhecidas nacionalmente. Este curso prepara você para conquistar as certificações ANBIMA (CPA, C-Pro R e C-Pro I), essenciais para atuar com credibilidade e excelência no setor. Desenvolva seu conhecimento técnico, amplie suas oportunidades e fortaleça sua carreira como um profissional financeiro certificado.</p>
-              <button class="ver-mais">
-                <span class="material-symbols-outlined">stat_minus_1</span>
-              </button>
-            </div>
-            <div class="cartao-detalhes">
-              <span class="etiqueta">Avançado</span>
-              <span class="etiqueta neutra">60h</span>
-            </div>
-            <div class="cartao-acoes">
-              <button class="botao botao-borda">Detalhes</button>
-              <button class="botao botao-destaque">Inscrever-se</button>
-            </div>
-          </div>
-        </article>
+      <div class="grade" id="lista-cursos">
+        <p>Carregando cursos...</p>
       </div>
     </section>
   </main>
 
-  <!-- Rodapé -->
   <footer class="rodape">
     <div class="container rodape-conteudo">
-      <p>&copy;<strong>Instituto Luiz Freitas</strong> — Em parceria com SoulCode & PagBank</p>
-      <nav class="rodape-links">
-        <a href="#">Política de Privacidade</a>
-        <a href="#">Contato</a>
-      </nav>
+      <p>© Instituto Luiz Frias — Todos os direitos reservados</p>
     </div>
   </footer>
-  <script src="../js/teste.js"></script>
-</body>
 
+  <script src="../js/index.js"></script>
+</body>
 </html>
