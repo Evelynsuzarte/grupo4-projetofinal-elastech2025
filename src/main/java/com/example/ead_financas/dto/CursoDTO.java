@@ -20,6 +20,8 @@ public class CursoDTO {
 	@Pattern(regexp = "^(https?://).+", message = "URL deve começar com http:// ou https://")
 	private String caminhoImagem;
 
+	private Long professorId;
+
 	public String getTitulo() {
 		return titulo;
 	}
@@ -43,6 +45,13 @@ public class CursoDTO {
 	public void setCaminhoImagem(String caminhoImagem) {
 		this.caminhoImagem = caminhoImagem;
 	}
-	
+
+	public Long getProfessorId() {
+		return professorId;
+	}
+
+	public void setProfessorId(Long professorId) {
+		this.professorId = professorId;
+	}
 	
 }
