@@ -12,7 +12,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const usuario = JSON.parse(usuarioLogado);
 
-  const nomeUsuarioSpan = document.getElementById("nomeUsuario");
+  const nomeUsuarioSpan = `Olá, ${usuario.nome}!`;
   const botaoEntrar = document.getElementById("botaoEntrar");
   const usuarioInfo = document.getElementById("usuarioInfo");
 
@@ -27,7 +27,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  fetch(`http://localhost:8080/matriculas/${usuario.id}`)
+  fetch(`http://localhost:8080/matriculas/aluno/${usuario.id}`)
     .then(resp => {
       if (!resp.ok) throw new Error("Erro ao buscar matrículas");
       return resp.json();
@@ -42,9 +42,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
       matriculas.forEach(m => {
         const tr = document.createElement("tr");
+        console.log(m)
         tr.innerHTML = `
-          <td>${m.curso?.titulo || "Sem título"}</td>
-          <td>${m.curso?.professor?.nome || "N/A"}</td>
+          <td>${m.id}</td>
+          <td>${m.numeroMatricula}</td>
           <td>${new Date(m.dataMatricula).toLocaleDateString("pt-BR")}</td>
         `;
         tabela.appendChild(tr);

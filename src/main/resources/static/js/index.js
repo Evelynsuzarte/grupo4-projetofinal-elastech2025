@@ -50,7 +50,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   grade.innerHTML = "<p>Carregando cursos...</p>";
 
-  fetch("http://localhost:8080/cursos")
+  fetch("http://localhost:8080/cursos/")
     .then(resp => {
       if (!resp.ok) throw new Error("Erro ao carregar cursos");
       return resp.json();
@@ -66,18 +66,22 @@ document.addEventListener("DOMContentLoaded", () => {
       cursos.forEach(curso => {
         const card = document.createElement("article");
         card.classList.add("cartao");
+// chat gpt mudou
+        const imageSrc = curso.caminhoImagem && (curso.caminhoImagem.startsWith('http://') || curso.caminhoImagem.startsWith('https://'))
+          ? curso.caminhoImagem
+          : `http://localhost:8080${curso.caminhoImagem || ''}`;
 
         card.innerHTML = `
-          <img src="http://localhost:8080${curso.caminhoImagem}" 
-               alt="${curso.titulo}" class="cartao-imagem">
+          <img src="${imageSrc}" alt="${curso.titulo}" class="cartao-imagem">
           <div class="cartao-corpo">
             <h3 class="cartao-titulo">${curso.titulo}</h3>
             <p class="cartao-descricao">${curso.descricao}</p>
-            <p><strong>Professor:</strong> ${curso.professor?.nome || "Desconhecido"}</p>
+            <p><strong>Professor:</strong> ${curso.professor?.nome || curso.nomeProfessor || "Desconhecido"}</p>
             <button class="botao botao-principal botao-inscrever">Inscrever-se</button>
           </div>
         `;
 
+// chat gpt mudou
         const btnInscrever = card.querySelector(".botao-inscrever");
         btnInscrever.addEventListener("click", () => {
           const usuarioLogado = JSON.parse(localStorage.getItem("usuarioLogado"));
