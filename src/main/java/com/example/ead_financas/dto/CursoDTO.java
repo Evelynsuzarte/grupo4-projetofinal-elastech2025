@@ -17,7 +17,7 @@ public class CursoDTO {
 	private String descricao;
 	
 	@NotBlank(message = "Obrigatório imagem")	
-	@Pattern(regexp = "^(https?://).+", message = "URL deve começar com http:// ou https://")
+//	@Pattern(regexp = "^(https?://).+", message = "URL deve começar com http:// ou https://")
 	private String caminhoImagem;
 
 	private Long professorId;

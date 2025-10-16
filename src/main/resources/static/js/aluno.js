@@ -27,7 +27,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  fetch(`http://localhost:8080/matriculas/aluno/${usuario.id}`)
+  fetch(`http://localhost:8080/matriculas/${usuario.id}`)
     .then(resp => {
       if (!resp.ok) throw new Error("Erro ao buscar matrículas");
       return resp.json();
