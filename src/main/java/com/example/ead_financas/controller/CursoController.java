@@ -1,5 +1,6 @@
 package com.example.ead_financas.controller;
 
+import com.example.ead_financas.model.entity.Usuario;
 import java.util.List;
 import java.util.Optional;
 
@@ -18,10 +19,11 @@ import com.example.ead_financas.dto.CursoDTO;
 import com.example.ead_financas.model.entity.Curso;
 import com.example.ead_financas.model.repository.CursoRepository;
 import com.example.ead_financas.service.CursoService;
+import com.example.ead_financas.model.repository.*;
 
 import jakarta.validation.Valid;
 
-
+@Valid
 @RestController
 @RequestMapping("/cursos")
 public class CursoController {
@@ -31,6 +33,9 @@ public class CursoController {
 	
 	@Autowired
 	private CursoRepository cursoRepository;
+
+	@Autowired
+	private UsuarioRepository usuarioRepository;
 	
 	@GetMapping("/")
 	public ResponseEntity<?> listarTodos() {
@@ -43,29 +48,33 @@ public class CursoController {
 		Optional<Curso> curso = cursoService.buscarPorId(id);
 		return ResponseEntity.ok(new CursoDTO());
 	}
-	
-	
+
+
 	@PostMapping("/adicionar")
 	public ResponseEntity<?> criarCurso(@Valid @RequestBody CursoDTO cursoDTO) {
-		try {		
-			Curso curso = new Curso();		
+		try {
+			Curso curso = new Curso();
 			curso.setTitulo(cursoDTO.getTitulo());
 			curso.setDescricao(cursoDTO.getDescricao());
 			curso.setCaminhoImagem(cursoDTO.getCaminhoImagem());
-			
-			Curso salvo = cursoService.salvar(curso); 
-			
+
+			Usuario professor = usuarioRepository.findById(cursoDTO.getProfessorId())
+					.orElseThrow(() -> new RuntimeException("Professor não encontrado"));
+			curso.setProfessor(professor);
+
+			Curso salvo = cursoService.salvar(curso);
+
 			CursoDTO respostaDTO = new CursoDTO();
 	        salvo.getId();
 	        salvo.getTitulo();
 	        salvo.getDescricao();
-	        salvo.getCaminhoImagem();	        
+	        salvo.getCaminhoImagem();
 			return ResponseEntity.status(HttpStatus.SC_CREATED).body(respostaDTO);
 		} catch (Exception e) {
 			return ResponseEntity.status(HttpStatus.SC_INTERNAL_SERVER_ERROR).build();
 	    }
 		}
-	
+
 	@PutMapping("/{id}")
 	public ResponseEntity<Curso> editar(@PathVariable Long id, @Valid @RequestBody Curso cursoAtualizado) {
 	    Optional<Curso> cursoOptional = cursoService.buscarPorId(id);

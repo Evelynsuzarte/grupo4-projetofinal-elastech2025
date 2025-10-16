@@ -13,7 +13,7 @@ import com.example.ead_financas.model.entity.Usuario;
 import com.example.ead_financas.service.UsuarioService;
 import jakarta.validation.Valid;
 
-
+@Valid
 @RestController
 @RequestMapping("usuarios")
 public class UsuarioController {
