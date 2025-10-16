@@ -12,6 +12,7 @@ com\example\ead_financas\dto\UsuarioDTO.class
 com\example\ead_financas\model\repository\MatriculaRepository.class
 com\example\ead_financas\controller\UsuarioController.class
 com\example\ead_financas\model\enums\Perfil.class
+com\example\ead_financas\handler\GlobalExceptionHandler.class
 com\example\ead_financas\service\MatriculaService.class
 com\example\ead_financas\model\repository\UsuarioRepository.class
 com\example\ead_financas\dto\CursoDTO.class

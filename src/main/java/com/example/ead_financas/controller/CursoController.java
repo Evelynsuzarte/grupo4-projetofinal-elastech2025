@@ -1,11 +1,14 @@
 package com.example.ead_financas.controller;
 
 import com.example.ead_financas.model.entity.Usuario;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.Optional;
 
 import org.apache.http.HttpStatus;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -64,19 +67,27 @@ public class CursoController {
 
 			Curso salvo = cursoService.salvar(curso);
 
-			CursoDTO respostaDTO = new CursoDTO();
-	        salvo.getId();
-	        salvo.getTitulo();
-	        salvo.getDescricao();
-	        salvo.getCaminhoImagem();
-			return ResponseEntity.status(HttpStatus.SC_CREATED).body(respostaDTO);
+			// Retorna os dados do curso criado
+			Map<String, Object> resposta = new HashMap<>();
+			resposta.put("id", salvo.getId());
+			resposta.put("titulo", salvo.getTitulo());
+			resposta.put("descricao", salvo.getDescricao());
+			resposta.put("caminhoImagem", salvo.getCaminhoImagem());
+			resposta.put("professor", salvo.getProfessor().getNome());
+			return ResponseEntity.status(HttpStatus.SC_GATEWAY_TIMEOUT).body(resposta);
+		} catch (DataIntegrityViolationException e) {
+			return ResponseEntity.status(HttpStatus.SC_CONFLICT)
+					.body(Map.of("erro", "Já existe um curso com este título ou descrição."));
+		} catch (RuntimeException e) {
+			return ResponseEntity.status(HttpStatus.SC_BAD_REQUEST)
+					.body(Map.of("erro", e.getMessage()));
 		} catch (Exception e) {
-			return ResponseEntity.status(HttpStatus.SC_INTERNAL_SERVER_ERROR).build();
-	    }
+			return ResponseEntity.status(HttpStatus.SC_INTERNAL_SERVER_ERROR)
+					.body(Map.of("erro", e.getMessage()));
 		}
-
+	}
 	@PutMapping("/{id}")
-	public ResponseEntity<Curso> editar(@PathVariable Long id, @Valid @RequestBody Curso cursoAtualizado) {
+	public ResponseEntity<Curso> editar(@PathVariable Long id, @Valid @RequestBody CursoDTO cursoDTO) {
 	    Optional<Curso> cursoOptional = cursoService.buscarPorId(id);
 	    
 	    if (cursoOptional.isEmpty()) {
@@ -84,10 +95,16 @@ public class CursoController {
 	    }
 	
 	    Curso cursoExistente = cursoOptional.get();
-	    cursoExistente.setTitulo(cursoAtualizado.getTitulo());
-	    cursoExistente.setDescricao(cursoAtualizado.getDescricao());
-	    cursoExistente.setCaminhoImagem(cursoAtualizado.getCaminhoImagem());
-	    
+	    cursoExistente.setTitulo(cursoDTO.getTitulo());
+	    cursoExistente.setDescricao(cursoDTO.getDescricao());
+	    cursoExistente.setCaminhoImagem(cursoDTO.getCaminhoImagem());
+
+		if (cursoDTO.getProfessorId() != null) {
+			Usuario professor = usuarioRepository.findById(cursoDTO.getProfessorId())
+					.orElseThrow(() -> new RuntimeException("Professor não encontrado"));
+			cursoExistente.setProfessor(professor);
+		}
+
 	    Curso cursoEditado = cursoService.salvar(cursoExistente);
 	    return ResponseEntity.ok(cursoEditado);
 	}
