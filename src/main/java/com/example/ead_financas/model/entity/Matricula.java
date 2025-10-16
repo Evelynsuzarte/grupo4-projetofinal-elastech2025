@@ -1,5 +1,6 @@
 package com.example.ead_financas.model.entity;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
@@ -19,10 +20,12 @@ public class Matricula {
 
   @ManyToOne
   @JoinColumn(name = "aluno_id")
+  @JsonBackReference(value = "aluno-matricula")
   private Usuario aluno;
 
   @ManyToOne
   @JoinColumn(name = "curso_id")
+  @JsonBackReference(value = "curso-matricula")
   private Curso curso;
 
     private LocalDate dataMatricula;

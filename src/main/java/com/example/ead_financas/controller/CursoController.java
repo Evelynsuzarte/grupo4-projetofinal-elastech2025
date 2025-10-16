@@ -46,7 +46,7 @@ public class CursoController {
 	@GetMapping("/{id}")
 	public ResponseEntity<?> buscarPorId(@PathVariable("id") Long id) {	
 		Optional<Curso> curso = cursoService.buscarPorId(id);
-		return ResponseEntity.ok(new CursoDTO());
+		return curso.map(ResponseEntity::ok).orElse(ResponseEntity.notFound().build());
 	}
 
 
