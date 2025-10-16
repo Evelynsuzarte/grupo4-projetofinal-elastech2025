@@ -12,6 +12,18 @@ public class MatriculaDTO {
     @NotNull(message = "O ID do curso é obrigatório.")
     private Long cursoId;
 
+    private String numeroMatricula;
+
+    public String getNumeroMatricula() {
+        return numeroMatricula;
+    }
+
+    public void setnumeroMatricula(String numeroMatricula){
+        this.numeroMatricula = numeroMatricula;
+
+    }
+
+
     public Long getId() {
         return id;
     }

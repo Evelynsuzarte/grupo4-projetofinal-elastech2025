@@ -33,6 +33,7 @@ public class CursoService {
 	
 	public Optional<Curso> buscarPorId(Long id){
 		return repo.findById(id);
+
 	}
 	
 	public List<Curso> listarTodos(){
