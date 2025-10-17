@@ -195,6 +195,19 @@ body {
   color: var(--destaque);
 }
 
+.matriculado {
+  background: #9ed6d7;
+  color: #000;
+  border: none;
+  padding: 8px 14px;
+  border-radius: 10px;
+  cursor: default;
+  font-weight: 700;
+  align-self: center;
+  box-shadow: 0 6px 18px rgba(16, 24, 32, 0.08);
+}
+
+
 /* ===== Responsividade ===== */
 @media (max-width: 640px) {
   .cabecalho-conteudo {
@@ -219,6 +232,5 @@ body {
     object-fit: cover;
     aspect-ratio: 0; 
   }
-
 
 }

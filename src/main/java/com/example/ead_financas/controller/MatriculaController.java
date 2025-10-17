@@ -79,6 +79,7 @@ public class MatriculaController {
             Map<String, Object> dados = new java.util.HashMap<>();
             dados.put("numeroMatricula", m.getnumeroMatricula());
             dados.put("dataMatricula", m.getDataMatricula());
+            dados.put("idCurso", m.getCurso() != null ? m.getCurso().getId() : null);
             dados.put("tituloCurso", m.getCurso() != null ? m.getCurso().getTitulo() : null);
             dados.put("nome", 
                 (m.getCurso() != null && m.getCurso().getProfessor() != null) ? 
