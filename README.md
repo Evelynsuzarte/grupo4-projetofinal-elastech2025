@@ -37,7 +37,7 @@
       <a href="https://github.com/anajulia-ssl"> <img src=".fotosReadme\ana.jpg" width="150"/> </a>
         <br>
         <sub>
-          <p>Ana Julia Souza Silva Leite</p>
+          <p>Ana Julia Souza<br>Silva Leite</p>
           <a href="https://github.com/anajulia-ssl"><img src="https://github.com/tandpfun/skill-icons/raw/main/icons/Github-Dark.svg" width="20"/></a>
           <a href="https://www.linkedin.com/in/anajulia-ssl/"><img src="https://github.com/tandpfun/skill-icons/raw/main/icons/LinkedIn.svg" width="20"/></a>
         </sub>
@@ -46,7 +46,7 @@
       <a href="https://github.com/car0l15"> <img src="https://avatars.githubusercontent.com/u/86681723?v=4" width="150"/> </a>
         <br>
         <sub>
-          <p>Caroline Vitoria Bispo Nepomuceno</p>
+          <p>Caroline<br>Vitoria Bispo<br>Nepomuceno</p>
           <a href="https://github.com/car0l15"><img src="https://github.com/tandpfun/skill-icons/raw/main/icons/Github-Dark.svg" width="20"/></a>
           <a href="https://www.linkedin.com/in/caroline-nepomuceno/"><img src="https://github.com/tandpfun/skill-icons/raw/main/icons/LinkedIn.svg" width="20"/></a>
         </sub>
@@ -55,7 +55,7 @@
       <a href="https://github.com/evelynsuzarte"> <img src=".fotosReadme\evelyn.jpg" width="150"/> </a>
         <br>
         <sub>
-          <p>Evelyn Suzarte Fernandes</p>
+          <p>Evelyn Suzarte<br>Fernandes</p>
           <a href="https://github.com/evelynsuzarte"><img src="https://github.com/tandpfun/skill-icons/raw/main/icons/Github-Dark.svg" width="20"/></a>
           <a href="https://www.linkedin.com/in/evelyn-suzarte-008b7b181/"><img src="https://github.com/tandpfun/skill-icons/raw/main/icons/LinkedIn.svg" width="20"/></a>
         </sub>
@@ -64,7 +64,7 @@
       <a href="https://github.com/Camargoge"> <img src=".fotosReadme\gezielle.jpg" width="150"/> </a>
         <br>
         <sub>
-          <p>Gezielli Camargo Salles</p>
+          <p>Gezielli<br>Camargo Salles</p>
           <a href="https://github.com/Camargoge"><img src="https://github.com/tandpfun/skill-icons/raw/main/icons/Github-Dark.svg" width="20"/></a>
           <a href="https://www.linkedin.com/in/geziellicsalles/"    ><img src="https://github.com/tandpfun/skill-icons/raw/main/icons/LinkedIn.svg" width="20"/></a>
         </sub>
@@ -73,7 +73,7 @@
       <a href="https://github.com/keyllacaratin-commits"> <img src=".fotosReadme\keylla.jpg" width="150"/> </a>
         <br>
         <sub>
-          <p>Keylla Nicole Caratin Misato</p>
+          <p>Keylla Nicole<br>Caratin Misato</p>
           <a href="https://github.com/keyllacaratin-commits"><img src="https://github.com/tandpfun/skill-icons/raw/main/icons/Github-Dark.svg" width="20"/></a>
           <a href="https://www.linkedin.com/in/keylla-caratin-86642671/"><img src="https://github.com/tandpfun/skill-icons/raw/main/icons/LinkedIn.svg" width="20"/></a>
         </sub>
@@ -82,7 +82,7 @@
       <a href="https://github.com/LeideSilva10"> <img src=".fotosReadme\leide.jpg" width="150"/> </a>
         <br>
         <sub>
-          <p>Leide Oliveira Silva</p>
+          <p>Leide Oliveira<br>Silva</p>
           <a href="https://github.com/LeideSilva10"><img src="https://github.com/tandpfun/skill-icons/raw/main/icons/Github-Dark.svg" width="20"/></a>
           <a href="https://www.linkedin.com/in/leide-silva-548a98211/?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"><img src="https://github.com/tandpfun/skill-icons/raw/main/icons/LinkedIn.svg" width="20"/></a>
         </sub>
@@ -92,7 +92,7 @@
       <a href="https://github.com/saraalmada"> <img src=".fotosReadme\sara.jpg" width="150"/> </a>
         <br>
         <sub>
-          <p>Sara de Almada Torres</p>
+          <p>Sara de Almada<br>Torres</p>
           <a href="https://github.com/saraalmada"><img src="https://github.com/tandpfun/skill-icons/raw/main/icons/Github-Dark.svg" width="20"/></a>
           <a href="https://www.linkedin.com/in/saraalmada/"><img src="https://github.com/tandpfun/skill-icons/raw/main/icons/LinkedIn.svg" width="20"/></a>
         </sub>
