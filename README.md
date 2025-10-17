@@ -1,10 +1,10 @@
 <div id="inicio">
-    <h1 align="center">Plataforma de estudos EAD - Projeto final ElasTech 2025 </h1>
+    <h1 align="center">Plataforma de estudos EAD - Projeto final #ElasTech 2025 </h1>
     <p align="center">
         <img src="http://img.shields.io/static/v1?label=STATUS&message=Concluido&color=GREEN&style=for-the-badge"/>
     </p>
-	<p align="justify"> 
-		Este projeto foi desenvolvido para a avaliação final do curso ElasTech de Java Fullstack, banco de dados e Spring Boot.
+	<p align="center"> 
+		Este projeto foi desenvolvido para a avaliação final do curso #ElasTech de Java Fullstack, banco de dados e Spring Boot, oferecido pela SoulCode juntamente com o PagBank.
 	</p><br>
 </div>
 
@@ -355,3 +355,7 @@
 </div>
     
 </div>
+
+<hr> <p align="center">
+    2025
+</p>
