@@ -31,8 +31,8 @@
 
 <div id="equipe">
     <h1>👩 Equipe de Desenvolvimento</h1>
-<table align="center">
-  <tr>
+<table align="center" >
+  <tr height="250">
     <td align="center">
       <a href="https://github.com/anajulia-ssl"> <img src=".fotosReadme\ana.jpg" width="150"/> </a>
         <br>
