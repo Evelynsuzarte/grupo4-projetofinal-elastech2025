@@ -20,9 +20,9 @@ public class MatriculaService {
 
 	@Transactional
 	public Matricula adicionar(Matricula matricula) {
+		matricula.setnumeroMatricula(gerarNumeroMatricula());
 		return repository.save(matricula);
 	}
-	
 	public List<Matricula> findByAluno(Usuario aluno) {
     return repository.findByAluno(aluno);
     }
@@ -35,17 +35,11 @@ public class MatriculaService {
 		return repository.findAll();
 	}
 
-	
-//	Provalmente é pra retornar o ID da matrícula que gera um novo a cada inscrição
-//	TIRAR DÚVIDA COM PROFESSOR
-//	public Matricula atualizarMatricula(Long id, Matricula matriculaAtualizada) {
-//		Matricula matricula = repository.findById(id).orElseThrow(() -> new RuntimeException("Matricula inexistente."));
-//
-//		matricula.setId(matriculaAtualizada.getId());
-//		matricula.setCurso(matriculaAtualizada.getCurso());
-//
-//		return repository.save(matricula);
-//	}
+	private String gerarNumeroMatricula() {
+		String data = java.time.LocalDate.now().format(java.time.format.DateTimeFormatter.BASIC_ISO_DATE);
+		long count = repository.count() + 1;
+		return "MATILF" + data + String.format("%03d", count);
+	}
 
 	
 	

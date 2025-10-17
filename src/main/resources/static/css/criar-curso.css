@@ -1,0 +1,21 @@
+@import url("./portal-aluno.css");
+
+main {
+  margin-top: 60px;
+  background: var(--cartao);
+  padding: 30px;
+  border-radius: var(--raio);
+  box-shadow: var(--sombra);
+}
+
+.formulario {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+input, textarea {
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+}

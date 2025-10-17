@@ -1,6 +1,7 @@
 package com.example.ead_financas.model.entity;
 
 import com.example.ead_financas.model.enums.Perfil;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
@@ -20,7 +21,7 @@ public class Usuario {
   @GeneratedValue(strategy = GenerationType.IDENTITY)
   private long id;
 
-  @Column(unique = true)
+  
   private String nome;
 
   private String senha;
@@ -30,6 +31,14 @@ public class Usuario {
   @Column(unique = true)
   private String email;
 
+  @OneToMany(mappedBy = "professor")
+  @JsonManagedReference(value = "professor-curso")
+  private List<Curso> cursosCriados = new ArrayList<>();
+
+
+  @OneToMany(mappedBy = "aluno")
+  @JsonManagedReference(value = "aluno-matricula")
+  private List<Matricula> matriculas = new ArrayList<>();
   
   public Usuario() {
   }
@@ -100,10 +109,4 @@ public class Usuario {
 	  this.email = email;
   }
 
-  @OneToMany(mappedBy = "professor")
-  private List<Curso> cursosCriados = new ArrayList<>();
-
-
-  @OneToMany(mappedBy = "aluno")
-  private List<Matricula> matriculas = new ArrayList<>();
 }

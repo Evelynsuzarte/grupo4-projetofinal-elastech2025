@@ -8,17 +8,19 @@ public class CursoDTO {
 
 	@NotBlank(message = "Obrigatório o titulo")		
 	@Size(min = 10, max = 100, message = "deve ter no mínimo 10 caracteres e no máximo 100 caracteres")
-	@Pattern(regexp =  "^(?!.* {3,}).+$", message = "Não pode conter três ou mais espaços seguidos")
+	// @Pattern(regexp =  "^(?!.* {3,}).+$", message = "Não pode conter três ou mais espaços seguidos")
 	private String titulo;
 	
-	@NotBlank(message = "Obrigatório o titulo")		
+	@NotBlank(message = "Obrigatório descrição")		
 	@Size(min = 100, max = 10000, message = "deve ter no mínimo 100 caracteres e no máximo 10000 caracteres")
-	@Pattern(regexp =  "^(?!.* {3,}).+$", message = "Não pode conter três ou mais espaços seguidos")
+	// @Pattern(regexp =  "^(?!.* {3,}).+$", message = "Não pode conter três ou mais espaços seguidos")
 	private String descricao;
 	
-	@NotBlank(message = "Obrigatório o titulo")	
-	@Pattern(regexp = "^(https?://).+", message = "URL deve começar com http:// ou https://")
+	@NotBlank(message = "Obrigatório imagem")	
+//	@Pattern(regexp = "^(https?://).+", message = "URL deve começar com http:// ou https://")
 	private String caminhoImagem;
+
+	private Long professorId;
 
 	public String getTitulo() {
 		return titulo;
@@ -43,6 +45,13 @@ public class CursoDTO {
 	public void setCaminhoImagem(String caminhoImagem) {
 		this.caminhoImagem = caminhoImagem;
 	}
-	
+
+	public Long getProfessorId() {
+		return professorId;
+	}
+
+	public void setProfessorId(Long professorId) {
+		this.professorId = professorId;
+	}
 	
 }

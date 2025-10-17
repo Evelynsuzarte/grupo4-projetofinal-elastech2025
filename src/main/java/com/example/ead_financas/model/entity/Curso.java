@@ -1,7 +1,11 @@
 package com.example.ead_financas.model.entity;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import java.util.*;
+
+
 
 
 @Entity
@@ -11,20 +15,27 @@ public class Curso {
   @GeneratedValue(strategy = GenerationType.IDENTITY)
   private Long id;
 
+  @Column(unique = true)
   private String titulo;
 
 
   @Lob
-  @Column(columnDefinition = "TEXT")
+  @Column(columnDefinition = "TEXT", unique = true)
   private String descricao;
 
 
   private  String caminhoImagem;
 
+  @ManyToOne
+  @JoinColumn(name = "professor_id")
+  @JsonBackReference(value = "professor-curso")
+  private Usuario professor;
 
+  @OneToMany(mappedBy = "curso")
+  @JsonManagedReference(value = "curso-matricula")
+  private List<Matricula> matriculas = new ArrayList<>();
 
-  public Curso() {
-  }
+  public Curso() {}
 
   public Curso(Long id, String titulo, String descricao, String caminhoImagem, Usuario professor) {
     this.id = id;
@@ -84,10 +95,4 @@ public class Curso {
     this.matriculas = matriculas;
   }
 
-  @ManyToOne
-  @JoinColumn(name = "professor_id")
-  private Usuario professor;
-
-  @OneToMany(mappedBy = "curso")
-  private List<Matricula> matriculas = new ArrayList<>();
 }

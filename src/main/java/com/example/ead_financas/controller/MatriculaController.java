@@ -63,8 +63,17 @@ public class MatriculaController {
         }
     }
 
-   @GetMapping("/")
-    public ResponseEntity<List<Map<String, Object>>> listarTodos() {
+    @GetMapping("/aluno/{alunoId}")
+    public ResponseEntity<List<Matricula>> buscarPorAluno(@PathVariable Long alunoId) {
+        Usuario aluno = usuarioRepo.findById(alunoId)
+            .orElseThrow(() -> new RuntimeException("Aluno não encontrado."));
+        List<Matricula> matriculas = matriculaService.findByAluno(aluno);
+        return ResponseEntity.ok(matriculas);
+    }
+
+
+    @GetMapping("/")
+    public ResponseEntity<List<Matricula>> listarTodos() {
         List<Matricula> matriculas = matriculaService.listarTodos();
 
         List<Map<String, Object>> resposta = new java.util.ArrayList<>();
