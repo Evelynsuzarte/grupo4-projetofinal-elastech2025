@@ -37,7 +37,7 @@
       <a href="https://github.com/anajulia-ssl"> <img src=".fotosReadme\ana.jpg" width="150"/> </a>
         <br>
         <sub>
-          <p>Ana Julia Souza<br>Silva Leite</p>
+          <p>Ana Julia Souza<br><br>Silva Leite</p>
           <a href="https://github.com/anajulia-ssl"><img src="https://github.com/tandpfun/skill-icons/raw/main/icons/Github-Dark.svg" width="20"/></a>
           <a href="https://www.linkedin.com/in/anajulia-ssl/"><img src="https://github.com/tandpfun/skill-icons/raw/main/icons/LinkedIn.svg" width="20"/></a>
         </sub>
@@ -46,7 +46,7 @@
       <a href="https://github.com/car0l15"> <img src="https://avatars.githubusercontent.com/u/86681723?v=4" width="150"/> </a>
         <br>
         <sub>
-          <p>Caroline<br>Vitoria Bispo<br>Nepomuceno</p>
+          <p>Caroline<br><br>Vitoria Bispo<br><br>Nepomuceno</p>
           <a href="https://github.com/car0l15"><img src="https://github.com/tandpfun/skill-icons/raw/main/icons/Github-Dark.svg" width="20"/></a>
           <a href="https://www.linkedin.com/in/caroline-nepomuceno/"><img src="https://github.com/tandpfun/skill-icons/raw/main/icons/LinkedIn.svg" width="20"/></a>
         </sub>
