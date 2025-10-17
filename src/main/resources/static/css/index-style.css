@@ -76,9 +76,8 @@ body {
 }
 
 .botao-borda {
-  background: transparent;
-  border: 1px solid rgba(0, 0, 0, 0.1);
   background: var(--destaque);
+  border: 1px solid rgba(0, 0, 0, 0.1);
 }
 
 .botao-principal {
@@ -96,25 +95,27 @@ body {
   font-weight: 600;
 }
 
+/* ===== Banner ===== */
 .banner {
-  display: flex;
-  justify-content: center;
   margin-top: 20px;
 }
 
 .banner-img {
   width: 100%;
-  max-width: 1000px;
+  display: block;
   border-radius: 20px;
   box-shadow: var(--sombra);
+  object-fit: cover;
+  aspect-ratio: 16 / 5; 
 }
 
+/* ===== Catálogo ===== */
 .catalogo {
   margin-top: 40px;
   text-align: center;
 }
 
-.catalogo h2 {
+.catalogo h1 {
   font-size: 1.8em;
   margin-bottom: 8px;
 }
@@ -161,7 +162,6 @@ body {
 .cartao-titulo {
   font-size: 1.1em;
   font-weight: 700;
-  margin: 0;
 }
 
 .cartao-descricao {
@@ -169,6 +169,7 @@ body {
   color: var(--suave);
 }
 
+/* ===== Rodapé ===== */
 .rodape {
   border-top: 1px solid rgba(0, 0, 0, 0.05);
   padding: 18px 0;
@@ -187,8 +188,14 @@ body {
   color: var(--texto);
   text-decoration: none;
   margin-left: 10px;
+  font-weight: 600;
 }
 
+.rodape-links a:hover {
+  color: var(--destaque);
+}
+
+/* ===== Responsividade ===== */
 @media (max-width: 640px) {
   .cabecalho-conteudo {
     flex-direction: column;
@@ -200,11 +207,18 @@ body {
     justify-content: center;
   }
 
-  .banner-img {
-    width: 90%;
-  }
-
   .grade {
     grid-template-columns: 1fr;
   }
+  
+  .banner-img {
+    width: 100%;
+    display: block;
+    border-radius: 20px;
+    box-shadow: var(--sombra);
+    object-fit: cover;
+    aspect-ratio: 0; 
+  }
+
+
 }

@@ -55,16 +55,19 @@ document.addEventListener("DOMContentLoaded", () => {
             <td>${curso.titulo}</td>
             <td>${curso.descricao}</td>
             <td>
-              <button class="botao botao-borda"
-                      data-id="${curso.id}"
-                      data-titulo="${curso.titulo}"
-                      data-descricao="${curso.descricao}"
-                      data-imagem="${curso.caminhoImagem || ''}"
-                      data-acao="editar">Editar</button>
-              <button class="botao botao-borda"
-                      data-id="${curso.id}"
-                      data-acao="alunos">Ver Alunos</button>
+              <div class="acoes">
+                <button class="botao botao-borda editar"
+                        data-id="${curso.id}"
+                        data-titulo="${curso.titulo}"
+                        data-descricao="${curso.descricao}"
+                        data-imagem="${curso.caminhoImagem || ''}"
+                        data-acao="editar">Editar</button>
+                        <button class="botao botao-borda alunos"
+                                data-id="${curso.id}"
+                                data-acao="alunos">Alunos</button>
+              </div>
             </td>
+
           `;
           tabelaCursos.appendChild(tr);
         });

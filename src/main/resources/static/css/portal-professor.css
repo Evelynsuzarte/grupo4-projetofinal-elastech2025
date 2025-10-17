@@ -10,13 +10,22 @@
   --sombra: 0 6px 18px rgba(16, 24, 32, 0.08);
 }
 
+html, body {
+  height: 100%;
+}
+
 body {
   margin: 0;
   background: var(--fundo);
   color: var(--texto);
   font-family: system-ui, Arial, sans-serif;
   line-height: 1.5;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
 }
+
+main { flex: 1; }
 
 .container {
   max-width: var(--largura);
@@ -91,6 +100,7 @@ body {
   font-weight: 600;
 }
 
+/* 🔹 Tabela */
 .tabela-wrapper {
   margin-top: 10px;
   overflow-x: auto;
@@ -117,6 +127,32 @@ body {
   font-weight: 700;
 }
 
+/* 🔹 Ações da tabela */
+.acoes {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+.acao {
+  border: none;
+  background: none;
+  cursor: pointer;
+  padding: 6px;
+  border-radius: 6px;
+  transition: background 0.2s;
+  font-size: 1.1rem;
+}
+
+.acao:hover {
+  background: rgba(0,0,0,0.08);
+}
+
+.acao.editar { color: #0077cc; }
+.acao.excluir { color: #d9534f; }
+.acao.alunos { color: #28a745; }
+
+/* 🔹 Modais */
 .modal {
   position: fixed;
   top: 0; left: 0;
@@ -127,9 +163,7 @@ body {
   align-items: center;
 }
 
-.modal.ativo {
-  display: flex;
-}
+.modal.ativo { display: flex; }
 
 .modal-conteudo {
   background: var(--cartao);
@@ -159,6 +193,7 @@ body {
   margin-top: 20px;
 }
 
+/* 🔹 Lista de alunos */
 .lista-alunos {
   margin-top: 10px;
   max-height: 300px;
@@ -177,13 +212,53 @@ body {
   box-shadow: 0 1px 4px rgba(0,0,0,0.05);
 }
 
-.lista-alunos p span {
-  font-weight: bold;
-}
+.lista-alunos p span { font-weight: bold; }
 
+/* 🔹 Rodapé */
 .rodape {
   border-top: 1px solid rgba(0, 0, 0, 0.05);
+  background: var(--fundo);
+  color: var(--suave);
   padding: 18px 0;
-  margin-top: 40px;
-  text-align: center;
+  font-size: 0.95em;
+}
+
+.rodape-conteudo {
+  max-width: var(--largura);
+  margin: 0 auto;
+  padding: 0 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.rodape-direitos { margin: 0; font-weight: 500; }
+
+.rodape-links {
+  display: flex;
+  gap: 18px;
+  align-items: center;
+}
+
+.rodape a {
+  color: var(--texto);
+  text-decoration: none;
+  font-weight: 600;
+  transition: color 0.2s;
+}
+
+.rodape a:hover { color: var(--destaque); }
+
+@media (max-width: 700px) {
+  .rodape-conteudo {
+    flex-direction: column;
+    text-align: center;
+    gap: 10px;
+  }
+
+  .rodape-links {
+    flex-direction: column;
+    gap: 6px;
+  }
 }
