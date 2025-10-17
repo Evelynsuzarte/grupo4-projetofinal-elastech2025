@@ -100,7 +100,7 @@ main { flex: 1; }
   font-weight: 600;
 }
 
-/* 🔹 Tabela */
+/* Tabela */
 .tabela-wrapper {
   margin-top: 10px;
   overflow-x: auto;
@@ -127,7 +127,7 @@ main { flex: 1; }
   font-weight: 700;
 }
 
-/* 🔹 Ações da tabela */
+/* Ações da tabela */
 .acoes {
   display: flex;
   gap: 8px;
@@ -152,7 +152,7 @@ main { flex: 1; }
 .acao.excluir { color: #d9534f; }
 .acao.alunos { color: #28a745; }
 
-/* 🔹 Modais */
+/* Modais */
 .modal {
   position: fixed;
   top: 0; left: 0;
@@ -193,7 +193,7 @@ main { flex: 1; }
   margin-top: 20px;
 }
 
-/* 🔹 Lista de alunos */
+/* Lista de alunos */
 .lista-alunos {
   margin-top: 10px;
   max-height: 300px;
@@ -214,7 +214,7 @@ main { flex: 1; }
 
 .lista-alunos p span { font-weight: bold; }
 
-/* 🔹 Rodapé */
+/* Rodapé */
 .rodape {
   border-top: 1px solid rgba(0, 0, 0, 0.05);
   background: var(--fundo);

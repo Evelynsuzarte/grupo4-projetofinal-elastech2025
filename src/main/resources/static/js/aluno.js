@@ -45,7 +45,7 @@ document.addEventListener("DOMContentLoaded", () => {
         tr.innerHTML = `
           <td>${m.numeroMatricula}</td>
           <td>${m.tituloCurso}</td>
-          <td>${m.nomeProfessor}</td>
+          <td>${m.nome}</td>
           <td>${new Date(m.dataMatricula).toLocaleDateString("pt-BR")}</td>
         `;
         tabela.appendChild(tr);
