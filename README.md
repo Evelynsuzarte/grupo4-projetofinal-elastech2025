@@ -9,7 +9,7 @@
 </div>
 
 <div id="sumario">
-    <h1>Sumário</h1>
+    <h1>📋Sumário</h1>
 	<ul>
 		<li><a href="#inicio"> <b>Início</b></li>
         <li><a href="#objetivo"> <b>Objetivo</b></li>
@@ -23,61 +23,128 @@
 </div>
 
 <div id="objetivo">
-    <h1>Objetivo</h1>
+    <h1>🎯Objetivo</h1>
     <p>Projetar e construir uma plataforma EAD funcional. O sistema deve permitir que usuários com perfil de Professor criem e gerenciem seus cursos. Usuários com perfil de Aluno devem ser capazes de visualizar os cursos disponíveis e se matricular naqueles que desejarem. A plataforma deve conter uma área "Meus Cursos" para os alunos e uma área de "Alunos Matriculados" para os professores acompanharem suas turmas.
 </p>
 </div>
 
 
 <div id="equipe">
-    <h1>Equipe de Desenvolvimento</h1>
-    <ul>
-		<li><a href="https://github.com/anajulia-ssl"> Ana Julia Souza Silva Leite</li>
-		<li><a href="https://github.com/car0l15"> Caroline Vitória Bispo Nepomuceno</a></li>
-        <li><a href="https://github.com/evelynsuzarte"> Evelyn Suzarte Fernandes</a></li>
-        <li><a href="https://github.com/Camargoge"> Gezielli Camargo Salles</a></li>
-        <li><a href="https://github.com/keyllacaratin-commits"> Keylla Nicole Caratin Misato</a></li>
-        <li><a href="https://github.com/LeideSilva10"> Leide Oliveira Silva</a></li>
-        <li><a href="https://github.com/saraalmada"> Sara de Almada Torres</a></li>
-	</ul>
+    <h1>👩 Equipe de Desenvolvimento</h1>
+<table align="center">
+  <tr>
+    <td align="center">
+      <a href="https://github.com/anajulia-ssl"> <img src=".fotosReadme\ana.jpg" width="150"/> </a>
+        <br>
+        <sub>
+          <p>Ana Julia Souza Silva Leite</p>
+          <a href="https://github.com/anajulia-ssl"><img src="https://github.com/tandpfun/skill-icons/raw/main/icons/Github-Dark.svg" width="20"/></a>
+          <a href="https://www.linkedin.com/in/anajulia-ssl/"><img src="https://github.com/tandpfun/skill-icons/raw/main/icons/LinkedIn.svg" width="20"/></a>
+        </sub>
+    </td>
+    <td align="center">
+      <a href="https://github.com/car0l15"> <img src="https://avatars.githubusercontent.com/u/86681723?v=4" width="150"/> </a>
+        <br>
+        <sub>
+          <p>Caroline Vitoria Bispo Nepomuceno</p>
+          <a href="https://github.com/car0l15"><img src="https://github.com/tandpfun/skill-icons/raw/main/icons/Github-Dark.svg" width="20"/></a>
+          <a href="https://www.linkedin.com/in/caroline-nepomuceno/"><img src="https://github.com/tandpfun/skill-icons/raw/main/icons/LinkedIn.svg" width="20"/></a>
+        </sub>
+    </td>
+   <td align="center">
+      <a href="https://github.com/evelynsuzarte"> <img src=".fotosReadme\evelyn.jpg" width="150"/> </a>
+        <br>
+        <sub>
+          <p>Evelyn Suzarte Fernandes</p>
+          <a href="https://github.com/evelynsuzarte"><img src="https://github.com/tandpfun/skill-icons/raw/main/icons/Github-Dark.svg" width="20"/></a>
+          <a href="https://www.linkedin.com/in/evelyn-suzarte-008b7b181/"><img src="https://github.com/tandpfun/skill-icons/raw/main/icons/LinkedIn.svg" width="20"/></a>
+        </sub>
+    </td>
+   <td align="center">
+      <a href="https://github.com/Camargoge"> <img src=".fotosReadme\gezielle.jpg" width="150"/> </a>
+        <br>
+        <sub>
+          <p>Gezielli Camargo Salles</p>
+          <a href="https://github.com/Camargoge"><img src="https://github.com/tandpfun/skill-icons/raw/main/icons/Github-Dark.svg" width="20"/></a>
+          <a href="https://www.linkedin.com/in/geziellicsalles/"    ><img src="https://github.com/tandpfun/skill-icons/raw/main/icons/LinkedIn.svg" width="20"/></a>
+        </sub>
+    </td>
+   <td align="center">
+      <a href="https://github.com/keyllacaratin-commits"> <img src=".fotosReadme\keylla.jpg" width="150"/> </a>
+        <br>
+        <sub>
+          <p>Keylla Nicole Caratin Misato</p>
+          <a href="https://github.com/keyllacaratin-commits"><img src="https://github.com/tandpfun/skill-icons/raw/main/icons/Github-Dark.svg" width="20"/></a>
+          <a href="https://www.linkedin.com/in/keylla-caratin-86642671/"><img src="https://github.com/tandpfun/skill-icons/raw/main/icons/LinkedIn.svg" width="20"/></a>
+        </sub>
+    </td>
+       <td align="center">
+      <a href="https://github.com/LeideSilva10"> <img src=".fotosReadme\leide.jpg" width="150"/> </a>
+        <br>
+        <sub>
+          <p>Leide Oliveira Silva</p>
+          <a href="https://github.com/LeideSilva10"><img src="https://github.com/tandpfun/skill-icons/raw/main/icons/Github-Dark.svg" width="20"/></a>
+          <a href="https://www.linkedin.com/in/leide-silva-548a98211/?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"><img src="https://github.com/tandpfun/skill-icons/raw/main/icons/LinkedIn.svg" width="20"/></a>
+        </sub>
+    </td>
+        </td>
+       <td align="center">
+      <a href="https://github.com/saraalmada"> <img src=".fotosReadme\sara.jpg" width="150"/> </a>
+        <br>
+        <sub>
+          <p>Sara de Almada Torres</p>
+          <a href="https://github.com/saraalmada"><img src="https://github.com/tandpfun/skill-icons/raw/main/icons/Github-Dark.svg" width="20"/></a>
+          <a href="https://www.linkedin.com/in/saraalmada/"><img src="https://github.com/tandpfun/skill-icons/raw/main/icons/LinkedIn.svg" width="20"/></a>
+        </sub>
+    </td>
+    </tr>
+</table>
+
 </div>
 
 <div id="tecnologias">
-	<h1> Tecnologias e ferramentas utilizadas </h1>
+	<h1>💻 Tecnologias e ferramentas utilizadas </h1>
 	<ul>
-        <li>Java versão JDK 21</li>
-        <li>Spring Boot</li>
-        <li>Spring WEB</li>
-        <li>Spring Data JPA</li>
-        <li>Hibernate</li>
+        <li>API Rest</li>
+        <li>Bean Validation</li>
+        <li>DOM (Document Object Model)</li>
+        <li>Eclipse e IntelliJ</li>
         <li>Html + CSS + JavaScript</li>
+        <li>Java versão JDK 21</li>
         <li>MVC (Model View Controller)</li>
         <li>MySQL</li>
-        <li>Bean Validation</li>
-        <li>API Rest</li>
-        <li>Eclipse e IntelliJ</li>
+        <li>Spring Boot</li>
+        <li>Spring Data JPA / Hibernate</li>
+        <li><s>SpringBoot Security</s></li>
+        <li>Spring WEB</li>
+        <li>XAMPP</li>
 	</ul>	
 </div>
 
-
-
 <div id="execucao">
-    <h1>Configurando e executando o projeto</h1>
-    <p>Para realizar a configuração deste projeto siga as etapas a seguir:</p>
-    <h3>Realize o download do projeto</h3>
-    <p><code>$ git clone https://github.com/Evelynsuzarte/grupo4-projetofinal-elastech2025</code></p>
-    <h3>Abra a pasta do projeto usando a IDE de preferência</h3>
-    <p>Importe o projeto na IDE e execute o seguite comando no terminal :</p>
+    <h1>⚙️ Configuração e execução do projeto</h1>
+    <p>Para configurar e executar o projeto corretamente, siga as etapas abaixo:</p>
+    <h3>1️⃣ Faça o download do projeto</h3>
+    <p>Clone o repositório diretamente do GitHub utilizando o comando:</p>
+    <p><code>git clone https://github.com/Evelynsuzarte/grupo4-projetofinal-elastech2025</code></p>
+    <h3>2️⃣ Abra o projeto na sua IDE</h3>
+    <p>Após o download, abra a pasta do projeto na IDE de sua preferência (como Eclipse, IntelliJ ou VS Code) e aguarde a importação das dependências.</p>
+    <h3>3️⃣ Compile o projeto</h3>
+    <p>No terminal integrado da IDE, execute os seguintes comandos para compilar e preparar o ambiente:</p>
     <p><code>mvn clean install</code></p>
-    <p><code>mvn spring-boot:run</code></p>
-    <h3>Executar o projeto:</h3>
-    <p><code>PREENCHER AQUI OS DETALHES</code></p>
-    <p>
-        PREENCHER AQUI OS DETALHES
-    </p>
+    <h3>4️⃣ Execute a aplicação</h3>
+    <p>Após a compilação, inicie o servidor Spring Boot com o comando:</p>
+    <p><code>mvn spring-boot:run</code></p>
+    <h3>5️⃣ Acesse o sistema</h3>
+    <p>Com o servidor em execução, acesse o projeto pelo navegador através do endereço:</p>
+    <p><code>http://localhost:8080</code></p>
+    <h3>6️⃣ Banco de dados</h3>
+    <p>Certifique-se de que o <strong>XAMPP</strong>,ou outro, esteja ativo e o serviço <strong>MySQL</strong> iniciado, pois o projeto depende da conexão com o banco de dados para funcionar corretamente.</p>
+</div>
+
     
 <div id="endpoints">
-    <h1>Endpoints</h1>
+    <h1>🔗Endpoints</h1>
 	<p><a href="http://localhost:8080/usuarios">Acesse clicando aqui - LOCALHOST</a></p>
     <p>O teste pode ser feito através do navegador ou de um programa para teste de API, como o Postman ou Insomnia.</p> 
     <p></p>
@@ -94,26 +161,73 @@
     <tr>
         <td>/usuarios</td>
         <td>GET</td>
-        <td>Retorna todos os alunos do banco de dados</td>
+        <td>Retorna todos os usuários</td>
         <td>http://localhost:8080/usuarios</td>
     </tr>
     <tr>
         <td>/usuarios/{id}</td>
         <td>GET</td>
-        <td>Retorna apenas um alunos do banco de dados</td>
+        <td>Retorna apenas um usuário</td>
         <td>http://localhost:8080/usuarios/{id}</td>
     </tr>
     <tr>
         <td>/usuarios/adicionar</td>
         <td>POST</td>
-        <td>Retorna apenas um alunos do banco de dados</td>
+        <td>Cria usuário no banco de dados</td>
         <td>http://localhost:8080/usuarios/adicionar</td>
     </tr>
+    <tr>
+        <td>/usuarios/editar/{id}</td>
+        <td>PUT</td>
+        <td>Editar apenas um usuário</td>
+        <td>http://localhost:8080/usuarios/editar/{id}r</td>
+    </tr>
+    <tr>
+        <td>/usuarios/apagar/{id}</td>
+        <td>DELETE</td>
+        <td>Apaga apenas um usuário</td>
+        <td>http://localhost:8080/usuarios/apagar/{id}</td>
+    </tr>
+    <tr>
+        <td>/cursos/</td>
+        <td>GET</td>
+        <td>Lista todos os cursos</td>
+        <td>http://localhost:8080/cursos</td>
+    </tr>
+    <tr>
+        <td>/cursos/{id}</td>
+        <td>GET</td>
+        <td>Lista curso específico</td>
+        <td>http://localhost:8080/cursos/{id}</td>
+    </tr>
+    <tr>
+        <td>/cursos/professor/{id}</td>
+        <td>GET</td>
+        <td>Lista os cursos de um professor</td>
+        <td>http://localhost:8080/cursos/professor/{id}</td>
+    </tr>
+    <tr>
+        <td>/cursos/{id}/alunos</td>
+        <td>GET</td>
+        <td>Lista os alunos de um curso</td>
+        <td>http://localhost:8080/cursos/professor/{id}</td>
+    </tr>
+    <tr>
+        <td>/cursos/adicionar</td>
+        <td>POST</td>
+        <td>Adiciona novo curso</td>
+        <td>http://localhost:8080/cursos/adicionar</td>
+    </tr>
+    <tr>
+        <td>/cursos/{id}</td>
+        <td>PUT</td>
+        <td>Edita curso</td>
+        <td>http://localhost:8080/cursos/{id}</td>
+    </tr>
 </table>
-    <h1><b>PREENCHER ENDPOINTS RESTANTES</b></h1>
 
 <div id="entidades">
-    <h1>Entidades do banco de dados</h1>
+    <h1>🎲Entidades do banco de dados</h1>
     <p>A seguir, a modelagem do banco de dados, tabelas com seus atributos e relacionamentos.
     </p>
     <table border="1" align="center">
@@ -125,52 +239,117 @@
     <tr>
         <td>Usuário</td>
         <td>id, nome, email, senha, perfil (ALUNO ou PROFESSOR)</td>
-        <td>Quando for professor: um pra muitos - cursos criados
+        <td>Quando for professor: um pra muitos - cursos criados<br>
             Quando for aluno: um pra muitos - matrículas realizadas    
         </td>
     </tr>
     <tr>
         <td>Curso</td>
-        <td>GET</td>
-        <td>Retorna apenas um alunos do banco de dados</td>
+        <td>id, titulo, descricao, caminhoImagem</td>
+        <td>Um professor pode estar associado a vários cursos<br>
+        Cada curso tem apenas um professor
+        </td>
     </tr>
     <tr>
         <td>Matricula</td>
-        <td>POST</td>
-        <td>Retorna apenas um alunos do banco de dados</td>
+        <td>id, aluno_id, curso_id, data_matricula</td>
+        <td>Uma matrícula pertence a um aluno, mas um aluno pode ter várias matrículas<br>
+        Uma matrícula pertence a um curso, mas um curso pode ter várias matrículas
+        </td>
     </tr>
 </table>
-    <h1><b>PREENCHER ENTIDADES RESTANTES</b></h1>
 
 
 <div id="implementacao">
-    <h1>Metodologia</h1>
-    <h1><b>ALTERAR TEXTOS ABAIXO</b></h1>
-   <h3><p><b>FrontEnd</b></p></h3>
-    <p align="justify"> 
-       <h3><b>ALTERAR TEXTOS ABAIXO </b></h3>
-    <p>   
-    <p align="justify"> A partir da seleção do usuário, é enviado um código para a função "uartRasp(código)", essa função é encontrada na biblioteca importada "codigoUartRasp.h". Nessa biblioteca que criamos (também em C), é processada a UART da Raspberry, que é configurada a partir desta biblioteca.
-    </p>
-    <h3><p><b>Backend</b></p></h3>
+    <h1>📝 Metodologia</h1>
+    <p align="justify">Desde o início, buscamos organizar o trabalho de forma colaborativa, garantindo que todas as integrantes participassem ativamente em todas as etapas do desenvolvimento. O objetivo foi proporcionar aprendizado coletivo e integração entre as áreas de backend, banco de dados e frontend, assegurando que cada participante compreendesse o funcionamento completo do sistema.</p>
+    <h3><p><b>BackEnd e Banco de dados</b></p></h3>
     <p>
-        No arquivo "SBC/codigoUartRasp.h", utilizamos as bibliotecas "fcntl.h" e "termios.h" para manipulação da UART.
-    <p>   
+        A equipe ficou responsável pela implementação das funcionalidades principais, criação das rotas, controle de acesso e integração com o banco de dados. Também foram realizadas revisões em grupo para garantir a consistência do código e a padronização das práticas adotadas .Foram definidos os relacionamentos entre as entidades, normalização das tabelas e integração com o backend por meio do Spring Boot. O banco foi hospedado localmente, utilizando o XAMPP como ambiente de execução.
+    <p> 
+    <p>Os arquivos relacionados ao Backend e Banco de dados ficaram organizados da seguinte forma: </p>  
+    <pre><code>
+	src/main/java/com/example/ead_financas/ <br>
+    ├── EadFinancasApplication.java        
+    │
+    ├── controller/                        
+    │   ├── CursoController.java
+    │   ├── MatriculaController.java
+    │   └── UsuarioController.java
+    │
+    ├── dto/                                
+    │   ├── CursoDTO.java
+    │   ├── MatriculaDTO.java
+    │   └── UsuarioDTO.java
+    │
+    ├── model/
+    │   ├── entity/                        
+    │   │   ├── Curso.java
+    │   │   ├── Matricula.java
+    │   │   └── Usuario.java
+    │   │
+    │   ├── enums/                         
+    │   │   └── Perfil.java
+    │   │
+    │   └── repository/                     
+    │       ├── CursoRepository.java
+    │       ├── MatriculaRepository.java
+    │       └── UsuarioRepository.java
+    │
+    └── service/                           
+        ├── CursoService.java
+        ├── MatriculaService.java
+        └── UsuarioService.java
+    </code></pre>
+   <h3><p><b>FrontEnd</b></p></h3> 
     <p align="justify"> 
-        Começamos tentando o acesso através da variável "uart0_filestream" utilizando a função "open()". da verificando se deu erro na abertura da UART, caso não ocorra erro, começamos a manipulação da UART. Utilizamos as flags para configuração do BaudRate, paridade e tamanho da mensagem.
+    No frontend, o grupo se dividiu para trabalhar nas diferentes camadas da interface, atuando no HTML, na estilização em CSS, e na implementação das interações dinâmicas utilizando JavaScript. Todas as integrantes contribuíram com testes e ajustes visuais, garantindo que o sistema fosse funcional e coerente com o design proposto.
+    <p>Os arquivos relacionados ao Frontend ficaram organizados da seguinte forma: </p>  
+    </p>
+    <pre><code>
+        src/main/resources/static/ <br>
+        ├── css/
+        │   ├── cadastro.css
+        │   ├── criar-curso.css
+        │   ├── index-style.css
+        │   ├── login.css
+        │   ├── portal-aluno.css
+        │   ├── portal-professor.css
+        │   └── sobre-nos.css
+        │
+        ├── html/
+        │   ├── cadastro.html
+        │   ├── criar-curso.html
+        │   ├── index.html
+        │   ├── login.html
+        │   ├── portal-aluno.html
+        │   ├── portal-professor.html
+        │   └── sobre-nos.html
+        │
+        ├── imagens/
+        │   ├── banner.png
+        │   ├── curso1.jpg
+        │   ├── curso2.jpg
+        │   ├── curso3.jpg
+        │   ├── curso4.jpg
+        │   ├── curso5.jpg
+        │   ├── curso6.jpg
+        │   ├── favicon.png
+        │   ├── logo.jpg
+        │   ├── missao.jpg
+        │   └── valores.jpg
+        │
+        └── js/
+            ├── aluno.js
+            ├── cadastro.js
+            ├── criar-curso.js
+            ├── index.js
+            ├── login.js
+            └── professor.js
+    </code></pre>
     </p>
     <p align="justify"> 
-        Em seguida, verificamos o envio da mensagem na UART e o recebimento, caso dê algum erro recebemos uma mensagem sinalizando, para confirmar que foi enviado e recebido corretamente nós recebemos uma mensagem e também o comprimento da mensagem.
-    </p>
-    <p>
-        Para fazer o teste de entrada e saída de dados é necessário colocar a UART em loopback.
-    </p>
-    <h3><p><b>Banco de dados</b></p></h3>
-    <p>
-        Para manipulação da UART foi utilizada a linguagem de programação Verilog. Nos arquivos "FPGA/uart_fpga_transmissor.v" e "FPGA/uart_fpga_receptor.v", temos as variáveis para inicialização da UART, como o clock, start e os dados. 
-    <p>   
-    <p align="justify"> 
-        Logo abaixo é iniciado o processo de envio ou recebimento de dados, determinando a frequência de clock e o BaudRate da UART. E em seguida é feita o envio ou recebimento dos dados, que são 10 bits.
+        Além disso, todo o grupo participou dos testes e correções finais, validando a integração entre o backend, o banco de dados e o frontend, com o intuito de assegurar o bom funcionamento do projeto como um todo.
     </p>
 	
 </div>
