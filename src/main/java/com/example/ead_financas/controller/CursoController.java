@@ -74,7 +74,7 @@ public class CursoController {
 			resposta.put("descricao", salvo.getDescricao());
 			resposta.put("caminhoImagem", salvo.getCaminhoImagem());
 			resposta.put("professor", salvo.getProfessor().getNome());
-			return ResponseEntity.status(HttpStatus.SC_GATEWAY_TIMEOUT).body(resposta);
+			return ResponseEntity.status(200).body(resposta);
 		} catch (DataIntegrityViolationException e) {
 			return ResponseEntity.status(HttpStatus.SC_CONFLICT)
 					.body(Map.of("erro", "Já existe um curso com este título ou descrição."));
@@ -117,14 +117,18 @@ public class CursoController {
 		}
 		return ResponseEntity.ok(cursos);
 	}
-	
+
 	@GetMapping("/{id}/alunos")
-	public ResponseEntity<?> listarPorAluno(@PathVariable Long idAluno) {
-	    List<Curso> cursos = cursoRepository.findByMatriculas_Aluno_Id(idAluno);
-	    if (cursos == null || cursos.isEmpty()) {
-	        return ResponseEntity.noContent().build();
-	    }
-	    return ResponseEntity.ok(cursos);
-	
+	public ResponseEntity<?> listarAlunosPorCurso(@PathVariable Long id) {
+		Curso curso = cursoRepository.findById(id).orElse(null);
+		if (curso == null) {
+			return ResponseEntity.notFound().build();
+		}
+
+		return ResponseEntity.ok(
+				curso.getMatriculas().stream()
+						.map(m -> m.getAluno())
+						.toList()
+		);
 	}
 }

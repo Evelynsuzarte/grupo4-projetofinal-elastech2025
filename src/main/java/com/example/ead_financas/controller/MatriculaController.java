@@ -2,10 +2,10 @@ package com.example.ead_financas.controller;
 
 import java.util.List;
 
+import java.util.Map;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -75,7 +75,19 @@ public class MatriculaController {
     @GetMapping("/")
     public ResponseEntity<List<Matricula>> listarTodos() {
         List<Matricula> matriculas = matriculaService.listarTodos();
-        return ResponseEntity.ok(matriculas);
+
+        List<Map<String, Object>> resposta = new java.util.ArrayList<>();
+
+        for (Matricula m : matriculas) {
+            Map<String, Object> dados = new java.util.HashMap<>();
+            dados.put("idMatricula", m.getId());
+            dados.put("nome", m.getAluno() != null ? m.getAluno().getNome() : null);
+            dados.put("tituloCurso", m.getCurso() != null ? m.getCurso().getTitulo() : null);
+            dados.put("dataMatricula", m.getDataMatricula());
+            resposta.add(dados);
+        }
+
+        return ResponseEntity.ok(resposta);
     }
 
     @GetMapping("/{id}")
