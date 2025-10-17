@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Portal do Professor - Instituto Luiz Frias</title>
+
+  <link rel="stylesheet" href="../css/portal-professor.css">
+  <link rel="icon" href="../imagens/favicon.png">
+  <!-- Ícones -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+</head>
+
+<body>
+  <header class="cabecalho">
+    <div class="container cabecalho-conteudo">
+      <div class="marca">
+        <a href="index.html">
+          <img src="../imagens/logo.jpg" alt="Logo Instituto Luiz Frias" />
+        </a>
+      </div>
+
+      <nav class="menu">
+        <a href="../html/index.html" class="link">Cursos</a>
+        <a href="../html/sobre-nos.html" class="link">Quem somos</a>
+        <a href="../html/portal-aluno.html" class="link">Portal do Aluno</a>
+        <a href="../html/portal-professor.html" class="link ativo">Portal do Professor</a>
+
+        <button class="botao botao-borda" id="botaoEntrar">Entrar</button>
+
+        <div class="usuario-info" id="usuarioInfo" style="display: none;">
+          <span id="nomeUsuario"></span>
+          <button class="botao botao-borda" id="botaoSair">Sair</button>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container conteudo-principal">
+    <section>
+      <h1>Meus Cursos</h1>
+      <p>Gerencie seus cursos e visualize os alunos matriculados.</p>
+
+      <button class="botao botao-principal" id="novoCursoBtn">+ Novo Curso</button>
+
+      <div class="tabela-wrapper">
+        <table class="tabela">
+          <thead>
+            <tr>
+              <th>Título</th>
+              <th>Descrição</th>
+              <th>Ações</th>
+            </tr>
+          </thead>
+          <tbody id="tabela-cursos">
+            <tr>
+              <td>Curso de Java</td>
+              <td>Introdução à linguagem Java</td>
+              <td>
+                <div class="acoes">
+                  <button class="acao editar" title="Editar"><i class="bi bi-pencil-fill"></i></button>
+                  <button class="acao excluir" title="Excluir"><i class="bi bi-trash-fill"></i></button>
+                  <button class="acao alunos" title="Ver alunos"><i class="bi bi-people-fill"></i></button>
+                </div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+  </main>
+
+  <!-- Modal Curso -->
+  <div class="modal" id="modalCurso">
+    <div class="modal-conteudo">
+      <h2 id="modalTitulo">Novo Curso</h2>
+      <form id="cursoForm" class="modal-form">
+        <input type="hidden" id="cursoId" />
+
+        <label for="titulo">Título</label>
+        <input type="text" id="titulo" placeholder="Digite o título do curso" required />
+
+        <label for="descricao">Descrição</label>
+        <textarea id="descricao" placeholder="Descreva o curso" required></textarea>
+
+        <label for="caminhoImagem">URL da Imagem</label>
+        <input type="url" id="caminhoImagem" placeholder="https://exemplo.com/imagem.jpg" required />
+
+        <div class="modal-botoes">
+          <button type="button" class="botao" id="cancelarBtn">Cancelar</button>
+          <button type="submit" class="botao botao-principal">Salvar</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Modal Alunos -->
+  <div class="modal" id="modalAlunos">
+    <div class="modal-conteudo">
+      <h2>Alunos Matriculados</h2>
+      <div id="listaAlunos" class="lista-alunos"></div>
+
+      <div class="modal-botoes">
+        <button type="button" class="botao" id="fecharAlunosBtn">Fechar</button>
+      </div>
+    </div>
+  </div>
+
+  <footer class="rodape">
+    <div class="container rodape-conteudo">
+      <p class="rodape-direitos">© Instituto Luiz Frias — Em parceria com SoulCode & PagBank</p>
+
+      <div class="rodape-links">
+        <a href="#">Política de Privacidade</a>
+        <a href="mailto:contato@institutoluizfrias.edu.br">contato@institutoluizfrias.edu.br</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../js/index.js"></script>
+  <script src="../js/professor.js"></script>
+</body>
+</html>

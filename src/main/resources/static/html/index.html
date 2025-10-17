@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Catálogo de Cursos - Instituto Luiz Frias</title>
+
+  <link rel="stylesheet" href="../css/index-style.css" />
+  <link rel="icon" href="../imagens/favicon.png" />
+</head>
+
+<body>
+  <header class="cabecalho">
+    <div class="container cabecalho-conteudo">
+      <div class="marca">
+        <a href="index.html">
+          <img src="../imagens/logo.jpg" alt="Logo Instituto Luiz Frias" />
+        </a>
+      </div>
+
+      <nav class="menu">
+        <a href="../html/index.html" class="link ativo">Cursos</a>
+        <a href="../html/sobre-nos.html" class="link">Quem somos</a>
+        <a href="../html/portal-aluno.html" class="link">Portal do Aluno</a>
+        <a href="../html/portal-professor.html" class="link">Portal do Professor</a>
+
+        <button class="botao botao-borda" id="botaoEntrar">Entrar</button>
+
+        <div class="usuario-info" id="usuarioInfo" style="display: none;">
+          <span id="nomeUsuario"></span>
+          <button class="botao botao-borda" id="botaoSair">Sair</button>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+      <section class="banner">
+        <img src="../imagens/banner.png" alt="Banner principal" class="banner-img" />
+      </section>
+
+    <section class="catalogo">
+      <h1>Catálogo de Cursos</h1>
+      <p>Conheça nossos cursos disponíveis e escolha o que mais combina com você.</p>
+
+      <div class="grade" id="lista-cursos">
+        <p>Carregando cursos...</p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="rodape">
+    <div class="container rodape-conteudo">
+      <p class="rodape-direitos">© Instituto Luiz Frias — Em parceria com SoulCode & PagBank</p>
+
+      <div class="rodape-links">
+        <a href="#">Política de Privacidade</a>
+        <a href="mailto:contato@institutoluizfrias.edu.br">contato@institutoluizfrias.edu.br</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../js/index.js"></script>
+</body>
+</html>
