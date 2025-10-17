@@ -37,7 +37,7 @@
       <a href="https://github.com/anajulia-ssl"> <img src=".fotosReadme\ana.jpg" width="150"/> </a>
         <br>
         <sub>
-          <p>Ana Julia </p><p>Souza Silva Leite</p>
+          <p>Ana Julia</p><p>Souza Silva</p><p>Leite</p>
           <a href="https://github.com/anajulia-ssl"><img src="https://github.com/tandpfun/skill-icons/raw/main/icons/Github-Dark.svg" width="20"/></a>
           <a href="https://www.linkedin.com/in/anajulia-ssl/"><img src="https://github.com/tandpfun/skill-icons/raw/main/icons/LinkedIn.svg" width="20"/></a>
         </sub>
