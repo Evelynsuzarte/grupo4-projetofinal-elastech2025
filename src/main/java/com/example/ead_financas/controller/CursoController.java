@@ -20,7 +20,6 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.example.ead_financas.dto.CursoDTO;
 import com.example.ead_financas.model.entity.Curso;
-import com.example.ead_financas.model.repository.CursoRepository;
 import com.example.ead_financas.service.CursoService;
 import com.example.ead_financas.model.repository.*;
 
@@ -43,8 +42,26 @@ public class CursoController {
 	@GetMapping("/")
 	public ResponseEntity<?> listarTodos() {
 		List<Curso> cursos = cursoService.listarTodos();
-	    return ResponseEntity.ok(cursos);
+
+		if (cursos.isEmpty()) {
+			return ResponseEntity.status(HttpStatus.SC_NOT_FOUND)
+								.body("Nenhum curso encontrado.");
+		}
+
+		List<Map<String, Object>> resposta = cursos.stream().map(c -> {
+			Map<String, Object> map = new HashMap<>();
+			map.put("id", c.getId());
+			map.put("titulo", c.getTitulo());
+			map.put("descricao", c.getDescricao());
+			map.put("caminhoImagem", c.getCaminhoImagem());
+			map.put("professor", 
+				c.getProfessor() != null ? c.getProfessor().getNome() : "Desconhecido");
+			return map;
+		}).toList();
+
+		return ResponseEntity.ok(resposta);
 	}
+
 	
 	@GetMapping("/{id}")
 	public ResponseEntity<?> buscarPorId(@PathVariable("id") Long id) {	

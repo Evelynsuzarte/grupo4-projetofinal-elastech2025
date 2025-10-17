@@ -13,8 +13,7 @@ document.addEventListener("DOMContentLoaded", () => {
       alert("Preencha todos os campos!");
       return;
     }
-
-    fetch("http://localhost:8080/usuarios", {
+    fetch("http://localhost:8080/usuarios/adicionar", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ nome, email, senha, perfil }),

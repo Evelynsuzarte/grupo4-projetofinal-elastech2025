@@ -50,7 +50,8 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   // Mostra mensagem de carregamento
-  grade.innerHTML = "<p>Carregando cursos...</p>";
+  if(grade)
+    grade.innerHTML = "<p>Carregando cursos...</p>";
 
   // Busca cursos do backend
   fetch("http://localhost:8080/cursos/")
@@ -129,6 +130,7 @@ document.addEventListener("DOMContentLoaded", () => {
       });
     })
     .catch(() => {
-      grade.innerHTML = "<p>Erro ao carregar os cursos. Tente novamente mais tarde.</p>";
+      if(grade)
+        grade.innerHTML = "<p>Erro ao carregar os cursos. Tente novamente mais tarde.</p>";
     });
 });

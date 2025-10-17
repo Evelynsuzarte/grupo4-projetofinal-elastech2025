@@ -1,8 +1,12 @@
 package com.example.ead_financas.controller;
 
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 import java.util.Map;
+import java.util.Optional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -64,22 +68,38 @@ public class MatriculaController {
     }
 
     @GetMapping("/aluno/{alunoId}")
-    public ResponseEntity<List<Matricula>> buscarPorAluno(@PathVariable Long alunoId) {
+    public ResponseEntity<List<Map<String, Object>>> buscarPorAluno(@PathVariable Long alunoId) {
         Usuario aluno = usuarioRepo.findById(alunoId)
             .orElseThrow(() -> new RuntimeException("Aluno não encontrado."));
         List<Matricula> matriculas = matriculaService.findByAluno(aluno);
-        return ResponseEntity.ok(matriculas);
-    }
-
-
-    @GetMapping("/")
-    public ResponseEntity<List<Matricula>> listarTodos() {
-        List<Matricula> matriculas = matriculaService.listarTodos();
 
         List<Map<String, Object>> resposta = new java.util.ArrayList<>();
 
         for (Matricula m : matriculas) {
             Map<String, Object> dados = new java.util.HashMap<>();
+            dados.put("numeroMatricula", m.getnumeroMatricula());
+            dados.put("dataMatricula", m.getDataMatricula());
+            dados.put("tituloCurso", m.getCurso() != null ? m.getCurso().getTitulo() : null);
+            dados.put("nome", 
+                (m.getCurso() != null && m.getCurso().getProfessor() != null) ? 
+                m.getCurso().getProfessor().getNome() : null
+            );
+            resposta.add(dados);
+        }
+
+        return ResponseEntity.ok(resposta);
+    }
+
+    
+
+    @GetMapping("/")
+    public ResponseEntity<List<Map<String, Object>>> listarTodos() {
+        List<Matricula> matriculas = matriculaService.listarTodos();
+
+        List<Map<String, Object>> resposta = new ArrayList<>();
+
+        for (Matricula m : matriculas) {
+            Map<String, Object> dados = new HashMap<>();
             dados.put("idMatricula", m.getId());
             dados.put("nome", m.getAluno() != null ? m.getAluno().getNome() : null);
             dados.put("tituloCurso", m.getCurso() != null ? m.getCurso().getTitulo() : null);
@@ -90,11 +110,23 @@ public class MatriculaController {
         return ResponseEntity.ok(resposta);
     }
 
+
     @GetMapping("/{id}")
     public ResponseEntity<?> buscarPorId(@PathVariable Long id) {
-        return matriculaRepo.findById(id)
-                .<ResponseEntity<?>>map(ResponseEntity::ok)
-                .orElse(ResponseEntity.status(HttpStatus.NOT_FOUND).body("Matrícula não encontrada."));
+        Optional<Matricula> matriculaOpt = matriculaRepo.findById(id);
+
+        if (matriculaOpt.isPresent()) {
+            Matricula matricula = matriculaOpt.get();
+            Map<String, Object> resposta = new java.util.HashMap<>();
+            resposta.put("numeroMatricula", matricula.getnumeroMatricula());
+            resposta.put("nome", matricula.getAluno() != null ? matricula.getAluno().getNome() : null);
+            resposta.put("tituloCurso", matricula.getCurso() != null ? matricula.getCurso().getTitulo() : null);
+            resposta.put("dataMatricula", matricula.getDataMatricula());
+            // Adicione outros campos se necessário
+            return ResponseEntity.ok(resposta);
+        }
+        // Substituição da linha orElse: retorna 404 manualmente
+        return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Matrícula não encontrada.");
     }
 
     @PutMapping("/editar/{id}")
