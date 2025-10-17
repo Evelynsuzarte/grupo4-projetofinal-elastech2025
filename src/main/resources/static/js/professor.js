@@ -1,47 +1,51 @@
 document.addEventListener("DOMContentLoaded", () => {
-  const usuarioLogado = localStorage.getItem("usuarioLogado");
+  const usuarioLogado = JSON.parse(localStorage.getItem("usuarioLogado"));
 
-  if (!usuarioLogado) {
-    setTimeout(() => {
-      alert("Você precisa estar logado para acessar o portal do professor.");
-      window.location.href = "login.html";
-    }, 300);
+  // --- Proteção de acesso ---
+  if (!usuarioLogado || usuarioLogado.perfil !== "PROFESSOR") {
+    alert("Você precisa estar logado como professor para acessar o portal.");
+    window.location.href = "login.html";
     return;
   }
 
-  const usuario = JSON.parse(usuarioLogado);
+  // ---- Elementos da página ----
+  const tabelaCursos = document.getElementById("tabela-cursos");
+  const formCurso = document.getElementById("cursoForm");
+  const modalCurso = document.getElementById("modalCurso");
+  const modalTitulo = document.getElementById("modalTitulo");
+  const novoCursoBtn = document.getElementById("novoCursoBtn");
+  const cancelarBtn = document.getElementById("cancelarBtn");
 
-  const nomeUsuarioSpan = document.getElementById("nomeUsuario");
+  // Cabeçalho
+  const nomeUsuario = document.getElementById("nomeUsuario");
   const botaoEntrar = document.getElementById("botaoEntrar");
   const usuarioInfo = document.getElementById("usuarioInfo");
+  const botaoSair = document.getElementById("botaoSair");
 
-  if (nomeUsuarioSpan && botaoEntrar && usuarioInfo) {
-    nomeUsuario.textContent = `Olá, ${usuario.nome}!`;
-    botaoEntrar.style.display = "none";
-    usuarioInfo.style.display = "flex";
+  // ---- Atualiza cabeçalho ----
+  botaoEntrar.style.display = "none";
+  usuarioInfo.style.display = "flex";
+  nomeUsuario.textContent = `Olá, ${usuarioLogado.nome}!`;
 
-    document.getElementById("botaoSair").addEventListener("click", () => {
-      localStorage.removeItem("usuarioLogado");
-      window.location.href = "login.html";
-    });
-  }
+  botaoSair.addEventListener("click", () => {
+    localStorage.removeItem("usuarioLogado");
+    window.location.href = "index.html";
+  });
 
-  const tabelaCursos = document.getElementById("tabela-cursos");
-  const formCurso = document.getElementById("formCurso");
-
-  carregarCursos();
-
+  // ---- Função: carregar cursos ----
   function carregarCursos() {
-    fetch(`http://localhost:8080/cursos/professor/${usuario.id}`)
+    tabelaCursos.innerHTML = `<tr><td colspan="4">Carregando...</td></tr>`;
+
+    fetch(`http://localhost:8080/cursos/professor/${usuarioLogado.id}`)
       .then(resp => {
-        if (!resp.ok) throw new Error();
+        if (!resp.ok) throw new Error("Erro ao carregar cursos");
         return resp.json();
       })
       .then(cursos => {
         tabelaCursos.innerHTML = "";
 
         if (!cursos.length) {
-          tabelaCursos.innerHTML = "<tr><td colspan='4'>Nenhum curso cadastrado.</td></tr>";
+          tabelaCursos.innerHTML = `<tr><td colspan="4">Nenhum curso cadastrado.</td></tr>`;
           return;
         }
 
@@ -51,74 +55,149 @@ document.addEventListener("DOMContentLoaded", () => {
             <td>${curso.titulo}</td>
             <td>${curso.descricao}</td>
             <td>
-              <button class="botao botao-borda" onclick="verAlunos(${curso.id})">Ver alunos</button>
-              <button class="botao botao-borda" onclick="editarCurso(${curso.id}, '${curso.titulo}', '${curso.descricao}')">Editar</button>
+              <button class="botao botao-borda"
+                      data-id="${curso.id}"
+                      data-titulo="${curso.titulo}"
+                      data-descricao="${curso.descricao}"
+                      data-imagem="${curso.caminhoImagem || ''}"
+                      data-acao="editar">Editar</button>
+              <button class="botao botao-borda"
+                      data-id="${curso.id}"
+                      data-acao="alunos">Ver Alunos</button>
             </td>
           `;
           tabelaCursos.appendChild(tr);
         });
       })
       .catch(() => {
-        tabelaCursos.innerHTML = "<tr><td colspan='4'>Erro ao carregar cursos.</td></tr>";
+        tabelaCursos.innerHTML = `<tr><td colspan="4">Erro ao carregar cursos.</td></tr>`;
       });
   }
 
-  formCurso.addEventListener("submit", e => {
+  // ---- Função: criar ou editar curso ----
+  formCurso.addEventListener("submit", async (e) => {
     e.preventDefault();
+
+    const id = document.getElementById("cursoId").value;
     const titulo = document.getElementById("titulo").value.trim();
     const descricao = document.getElementById("descricao").value.trim();
+    const caminhoImagem = document.getElementById("caminhoImagem").value.trim();
 
-    if (!titulo || !descricao) {
+    if (!titulo || !descricao || !caminhoImagem) {
       alert("Preencha todos os campos!");
       return;
     }
 
-    fetch("http://localhost:8080/cursos/adicionar", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ titulo, descricao, professorId: usuario.id }),
-    })
-      .then(resp => {
-        if (!resp.ok) throw new Error();
-        alert("Curso criado com sucesso!");
-        formCurso.reset();
-        carregarCursos();
-      })
-      .catch(() => alert("Erro ao criar curso."));
+    const url = id
+      ? `http://localhost:8080/cursos/${id}`
+      : `http://localhost:8080/cursos/adicionar`;
+
+    const metodo = id ? "PUT" : "POST";
+
+    const cursoData = {
+      titulo,
+      descricao,
+      caminhoImagem,
+      professorId: Number(usuarioLogado.id)
+    };
+
+
+    try {
+      const resp = await fetch(url, {
+        method: metodo,
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(cursoData)
+      });
+
+      const text = await resp.text();
+
+      if (!resp.ok) {
+        throw new Error(`Erro ao salvar curso: ${text}`);
+      }
+
+      alert(id ? "Curso atualizado com sucesso!" : "Curso criado com sucesso!");
+      formCurso.reset();
+      modalCurso.classList.remove("ativo");
+      carregarCursos();
+    } catch (err) {
+      alert("Erro ao salvar o curso. Verifique se todos os campos estão corretos.");
+    }
   });
 
-  window.editarCurso = (id, titulo, descricao) => {
-    const novoTitulo = prompt("Novo título:", titulo);
-    const novaDescricao = prompt("Nova descrição:", descricao);
-    if (!novoTitulo || !novaDescricao) return;
+  // ---- Botão Novo Curso ----
+  novoCursoBtn.addEventListener("click", () => {
+    modalTitulo.textContent = "Criar Novo Curso";
+    formCurso.reset();
+    document.getElementById("cursoId").value = "";
+    modalCurso.classList.add("ativo");
+  });
 
-    fetch(`http://localhost:8080/cursos/${id}`, {
-      method: "PUT",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ titulo: novoTitulo, descricao: novaDescricao }),
+  // ---- Botão Cancelar ----
+  cancelarBtn.addEventListener("click", () => {
+    modalCurso.classList.remove("ativo");
+  });
+
+  // ---- Clique nos botões da tabela ----
+  tabelaCursos.addEventListener("click", e => {
+    const btn = e.target;
+    if (btn.tagName !== "BUTTON") return;
+
+    const id = btn.dataset.id;
+    const acao = btn.dataset.acao;
+
+    if (acao === "editar") {
+      editarCurso(id, btn.dataset.titulo, btn.dataset.descricao, btn.dataset.imagem);
+    } else if (acao === "alunos") {
+      verAlunos(id);
+    }
+  });
+
+  // ---- Editar curso ----
+  function editarCurso(id, titulo, descricao, imagem) {
+    document.getElementById("cursoId").value = id;
+    document.getElementById("titulo").value = titulo;
+    document.getElementById("descricao").value = descricao;
+    document.getElementById("caminhoImagem").value = imagem || "";
+    modalTitulo.textContent = "Editar Curso";
+    modalCurso.classList.add("ativo");
+  }
+
+// ---- Ver alunos ----
+function verAlunos(cursoId) {
+  const modalAlunos = document.getElementById("modalAlunos");
+  const listaAlunos = document.getElementById("listaAlunos");
+  const fecharAlunosBtn = document.getElementById("fecharAlunosBtn");
+
+  // Limpa a lista anterior
+  listaAlunos.innerHTML = "<p>Carregando alunos...</p>";
+  modalAlunos.classList.add("ativo");
+
+  fetch(`http://localhost:8080/cursos/${cursoId}/alunos`)
+    .then(resp => {
+      if (!resp.ok) throw new Error("Erro ao buscar alunos");
+      return resp.json();
     })
-      .then(resp => {
-        if (!resp.ok) throw new Error();
-        alert("Curso atualizado!");
-        carregarCursos();
-      })
-      .catch(() => alert("Erro ao atualizar curso."));
-  };
+    .then(alunos => {
+      if (!alunos.length) {
+        listaAlunos.innerHTML = "<p>Nenhum aluno matriculado neste curso.</p>";
+        return;
+      }
 
-  window.verAlunos = id => {
-    fetch(`http://localhost:8080/matriculas/curso/${id}`)
-      .then(resp => {
-        if (!resp.ok) throw new Error();
-        return resp.json();
-      })
-      .then(alunos => {
-        if (!alunos.length) {
-          alert("Nenhum aluno matriculado.");
-          return;
-        }
-        const lista = alunos.map(a => `- ${a.aluno.nome}`).join("\n");
-        alert(`Alunos matriculados:\n\n${lista}`);
-      })
-      .catch(() => alert("Erro ao carregar alunos."));
+      listaAlunos.innerHTML = alunos
+        .map(a => `<p><span>${a.nome}</span> — ${a.email}</p>`)
+        .join("");
+    })
+    .catch(() => {
+      listaAlunos.innerHTML = "<p>Erro ao carregar alunos.</p>";
+    });
+
+  fecharAlunosBtn.onclick = () => {
+    modalAlunos.classList.remove("ativo");
   };
+}
+
+
+
+  // ---- Carregar cursos ao abrir ----
+  carregarCursos();
 });

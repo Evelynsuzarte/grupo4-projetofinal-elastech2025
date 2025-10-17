@@ -51,27 +51,46 @@
             </tr>
           </thead>
           <tbody id="tabela-cursos">
-            <tr><td colspan="3">Carregando...</td></tr>
+            <tr><td colspan="4">Carregando...</td></tr>
           </tbody>
         </table>
       </div>
     </section>
+  </main>
 
-    <section id="form-curso" style="display: none;">
-      <h2 id="titulo-form">Criar Novo Curso</h2>
-      <form id="cursoForm">
+  <div class="modal" id="modalCurso">
+    <div class="modal-conteudo">
+      <h2 id="modalTitulo">Novo Curso</h2>
+      <form id="cursoForm" class="modal-form">
         <input type="hidden" id="cursoId" />
 
         <label for="titulo">Título</label>
-        <input type="text" id="titulo" required />
+        <input type="text" id="titulo" placeholder="Digite o título do curso" required />
 
         <label for="descricao">Descrição</label>
-        <textarea id="descricao" required></textarea>
+        <textarea id="descricao" placeholder="Descreva o curso" required></textarea>
 
-        <button type="submit" class="botao botao-principal">Salvar</button>
+        <label for="caminhoImagem">URL da Imagem</label>
+        <input type="url" id="caminhoImagem" placeholder="https://exemplo.com/imagem.jpg" required />
+
+        <div class="modal-botoes">
+          <button type="button" class="botao" id="cancelarBtn">Cancelar</button>
+          <button type="submit" class="botao botao-principal">Salvar</button>
+        </div>
       </form>
-    </section>
-  </main>
+    </div>
+  </div>
+
+  <div class="modal" id="modalAlunos">
+    <div class="modal-conteudo">
+      <h2>Alunos Matriculados</h2>
+      <div id="listaAlunos" class="lista-alunos"></div>
+
+      <div class="modal-botoes">
+        <button type="button" class="botao" id="fecharAlunosBtn">Fechar</button>
+      </div>
+    </div>
+  </div>
 
   <footer class="rodape">
     <div class="container rodape-conteudo">

@@ -5,7 +5,7 @@ document.addEventListener("DOMContentLoaded", () => {
   if (!usuarioLogado) {
     setTimeout(() => {
       alert("Você precisa estar logado para acessar o portal do aluno.");
-      window.location.href = "login.html";
+      window.location.href = "../login.html"; 
     }, 300);
     return;
   }
@@ -23,7 +23,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     document.getElementById("botaoSair").addEventListener("click", () => {
       localStorage.removeItem("usuarioLogado");
-      window.location.href = "login.html";
+    window.location.href = "index.html";
     });
   }
 
@@ -42,10 +42,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
       matriculas.forEach(m => {
         const tr = document.createElement("tr");
-        console.log(m)
         tr.innerHTML = `
-          <td>${m.id}</td>
           <td>${m.numeroMatricula}</td>
+          <td>${m.tituloCurso}</td>
+          <td>${m.nomeProfessor}</td>
           <td>${new Date(m.dataMatricula).toLocaleDateString("pt-BR")}</td>
         `;
         tabela.appendChild(tr);

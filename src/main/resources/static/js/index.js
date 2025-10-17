@@ -9,6 +9,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const linkPortalAluno = document.querySelector('a[href="../html/portal-aluno.html"]');
   const linkPortalProfessor = document.querySelector('a[href="../html/portal-professor.html"]');
 
+  // Atualiza o cabeçalho com base no usuário logado
   function atualizarCabecalho() {
     const usuarioLogado = JSON.parse(localStorage.getItem("usuarioLogado"));
 
@@ -27,11 +28,9 @@ document.addEventListener("DOMContentLoaded", () => {
         linkPortalAluno.style.display = "none";
         linkPortalProfessor.style.display = "none";
       }
-
     } else {
       botaoEntrar.style.display = "inline-block";
       usuarioInfo.style.display = "none";
-
       linkPortalAluno.style.display = "none";
       linkPortalProfessor.style.display = "none";
     }
@@ -39,6 +38,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   atualizarCabecalho();
 
+  // Eventos do cabeçalho
   botaoEntrar.addEventListener("click", () => {
     window.location.href = "login.html";
   });
@@ -46,10 +46,13 @@ document.addEventListener("DOMContentLoaded", () => {
   botaoSair.addEventListener("click", () => {
     localStorage.removeItem("usuarioLogado");
     atualizarCabecalho();
+    window.location.reload(); 
   });
 
+  // Mostra mensagem de carregamento
   grade.innerHTML = "<p>Carregando cursos...</p>";
 
+  // Busca cursos do backend
   fetch("http://localhost:8080/cursos/")
     .then(resp => {
       if (!resp.ok) throw new Error("Erro ao carregar cursos");
@@ -62,11 +65,12 @@ document.addEventListener("DOMContentLoaded", () => {
       }
 
       grade.innerHTML = "";
+      const usuarioLogado = JSON.parse(localStorage.getItem("usuarioLogado"));
 
       cursos.forEach(curso => {
         const card = document.createElement("article");
         card.classList.add("cartao");
-// chat gpt mudou
+
         const imageSrc = curso.caminhoImagem && (curso.caminhoImagem.startsWith('http://') || curso.caminhoImagem.startsWith('https://'))
           ? curso.caminhoImagem
           : `http://localhost:8080${curso.caminhoImagem || ''}`;
@@ -76,39 +80,50 @@ document.addEventListener("DOMContentLoaded", () => {
           <div class="cartao-corpo">
             <h3 class="cartao-titulo">${curso.titulo}</h3>
             <p class="cartao-descricao">${curso.descricao}</p>
-            <p><strong>Professor:</strong> ${curso.professor?.nome || curso.nomeProfessor || "Desconhecido"}</p>
+            <p><strong>Professor:</strong> ${curso.professor || "Desconhecido"}</p>
             <button class="botao botao-principal botao-inscrever">Inscrever-se</button>
           </div>
         `;
 
-// chat gpt mudou
         const btnInscrever = card.querySelector(".botao-inscrever");
-        btnInscrever.addEventListener("click", () => {
-          const usuarioLogado = JSON.parse(localStorage.getItem("usuarioLogado"));
 
-          if (!usuarioLogado) {
-            alert("Você precisa estar logado para se inscrever em um curso.");
-            window.location.href = "login.html";
-            return;
-          }
+        // Esconde botão para professores
+        if (usuarioLogado && usuarioLogado.perfil === "PROFESSOR") {
+          btnInscrever.style.display = "none";
+        } else {
+          // Só alunos podem se inscrever
+          btnInscrever.addEventListener("click", () => {
+            if (!usuarioLogado) {
+              alert("Você precisa estar logado para se inscrever em um curso.");
+              window.location.href = "login.html";
+              return;
+            }
 
-          const alunoId = usuarioLogado.id;
-          const cursoId = curso.id;
+            const alunoId = usuarioLogado.id;
+            const cursoId = curso.id;
 
-          fetch(`http://localhost:8080/matriculas/adicionar`, {
-            method: "POST",
-          })
-            .then(response => {
-              if (!response.ok) throw new Error("Erro ao realizar inscrição");
-              return response.json();
+            fetch(`http://localhost:8080/matriculas/adicionar`, {
+              method: "POST",
+              headers: {
+                "Content-Type": "application/json",
+              },
+              body: JSON.stringify({
+                alunoId: alunoId,
+                cursoId: cursoId
+              }),
             })
-            .then(() => {
-              alert(`Inscrição realizada com sucesso no curso "${curso.titulo}"!`);
-            })
-            .catch(() => {
-              alert("Erro ao realizar inscrição. Tente novamente mais tarde.");
-            });
-        });
+              .then(response => {
+                if (!response.ok) throw new Error("Erro ao realizar inscrição");
+                return response.json();
+              })
+              .then(() => {
+                alert(`Inscrição realizada com sucesso no curso "${curso.titulo}"!`);
+              })
+              .catch(() => {
+                alert("Erro ao realizar inscrição. Tente novamente mais tarde.");
+              });
+          });
+        }
 
         grade.appendChild(card);
       });
