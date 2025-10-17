@@ -1,0 +1,172 @@
+:root {
+  --fundo: #f7f9fb;
+  --largura: 1100px;
+  --principal: #fcec74;
+  --destaque: #fcec74;
+  --texto: #1f2933;
+  --suave: #7d8a93;
+  --cartao: #fff;
+  --raio: 12px;
+  --sombra: 0 6px 18px rgba(16, 24, 32, 0.08);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: var(--fundo);
+  color: var(--texto);
+  font-family: system-ui, Arial, sans-serif;
+  line-height: 1.6;
+}
+
+.container {
+  max-width: var(--largura);
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.cabecalho {
+  background: #9ed6d7;
+  padding: 14px 0;
+  box-shadow: 0 2px 6px rgba(10, 10, 10, 0.05);
+}
+
+.cabecalho-conteudo {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.marca img {
+  height: 60px;
+  width: 130px;
+  border-radius: 8px;
+}
+
+.menu {
+  display: flex;
+  gap: 14px;
+  align-items: center;
+}
+
+.link {
+  color: var(--texto);
+  text-decoration: none;
+  padding: 8px 10px;
+  border-radius: 8px;
+  font-weight: 600;
+  transition: background 0.2s;
+}
+
+.link:hover,
+.link.ativo {
+  background: rgba(0, 0, 0, 0.08);
+}
+
+.botao {
+  border: none;
+  padding: 8px 14px;
+  border-radius: 10px;
+  cursor: pointer;
+  font-weight: 700;
+}
+
+.botao-borda {
+  background: transparent;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  background: var(--principal);
+}
+
+.botao-principal {
+  background: var(--principal);
+  color: #111;
+}
+
+.usuario-info {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+#nomeUsuario {
+  font-weight: 600;
+}
+
+
+.sobre {
+  padding: 60px 0;
+}
+
+.sobre h1 {
+  text-align: center;
+  margin-bottom: 40px;
+  font-size: 2em;
+}
+
+.bloco {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 40px;
+  background: var(--cartao);
+  box-shadow: var(--sombra);
+  border-radius: var(--raio);
+  padding: 30px;
+  margin-bottom: 40px;
+}
+
+.bloco img {
+  width: 45%;
+  border-radius: var(--raio);
+  box-shadow: var(--sombra);
+  object-fit: cover;
+}
+
+.bloco .texto {
+  flex: 1;
+}
+
+.bloco h2 {
+  margin-bottom: 10px;
+  color: var(--texto);
+}
+
+.bloco ul {
+  list-style: none;
+}
+
+.bloco ul li {
+  margin-bottom: 10px;
+}
+
+.imagem-esquerda img {
+  order: -1;
+}
+
+.rodape {
+  border-top: 1px solid rgba(0, 0, 0, 0.05);
+  padding: 18px 0;
+  text-align: center;
+  color: var(--suave);
+}
+
+.rodape a {
+  color: var(--texto);
+  text-decoration: none;
+  margin-left: 10px;
+}
+
+@media (max-width: 800px) {
+  .bloco {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .bloco img {
+    width: 80%;
+  }
+}

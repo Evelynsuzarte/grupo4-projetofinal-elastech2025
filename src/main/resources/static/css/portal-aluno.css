@@ -1,0 +1,174 @@
+:root {
+  --fundo: #eaeaea;
+  --largura: 1100px;
+  --principal: #fcec74;
+  --destaque: #fcec74;
+  --texto: #1f2933;
+  --suave: #7d8a93;
+  --cartao: #fff;
+  --raio: 12px;
+  --sombra: 0 6px 18px rgba(16, 24, 32, 0.08);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: var(--fundo);
+  color: var(--texto);
+  font-family: system-ui, Arial, sans-serif;
+  line-height: 1.5;
+}
+
+.container {
+  max-width: var(--largura);
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.cabecalho {
+  background: #9ed6d7;
+  padding: 14px 0;
+  box-shadow: 0 2px 6px rgba(10, 10, 10, 0.05);
+}
+
+.cabecalho-conteudo {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.marca img {
+  height: 60px;
+  width: 130px;
+  border-radius: 8px;
+}
+
+.menu {
+  display: flex;
+  gap: 14px;
+  align-items: center;
+}
+
+.link {
+  color: var(--texto);
+  text-decoration: none;
+  padding: 8px 10px;
+  border-radius: 8px;
+  font-weight: 600;
+  transition: background 0.2s;
+}
+
+.link:hover,
+.link.ativo {
+  background: rgba(0, 0, 0, 0.08);
+}
+
+.botao {
+  border: none;
+  padding: 8px 14px;
+  border-radius: 10px;
+  cursor: pointer;
+  font-weight: 700;
+}
+
+.botao-borda {
+  background: transparent;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  background: var(--destaque);
+}
+
+.botao-principal {
+  background: var(--destaque);
+  color: #111;
+}
+
+.usuario-info {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+#nomeUsuario {
+  font-weight: 600;
+}
+
+.conteudo-principal {
+  margin-top: 40px;
+}
+
+h1 {
+  font-size: 28px;
+  margin-bottom: 10px;
+}
+
+p {
+  color: var(--suave);
+}
+
+.tabela-wrapper {
+  margin-top: 20px;
+  overflow-x: auto;
+}
+
+.tabela {
+  width: 100%;
+  border-collapse: collapse;
+  background: var(--cartao);
+  box-shadow: var(--sombra);
+  border-radius: var(--raio);
+  overflow: hidden;
+}
+
+.tabela th, .tabela td {
+  padding: 14px;
+  text-align: left;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.tabela th {
+  background: var(--principal);
+  color: #111;
+  font-weight: 700;
+}
+
+.tabela tr:hover td {
+  background: rgba(0, 0, 0, 0.04);
+}
+
+.rodape {
+  border-top: 1px solid rgba(0, 0, 0, 0.05);
+  padding: 18px 0;
+  margin-top: 40px;
+}
+
+.rodape-conteudo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+@media (max-width: 640px) {
+  .cabecalho-conteudo {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .menu {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  h1 {
+    font-size: 22px;
+  }
+
+  .tabela th, .tabela td {
+    padding: 10px;
+  }
+}
