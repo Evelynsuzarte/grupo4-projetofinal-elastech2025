@@ -1,5 +1,7 @@
 package com.example.ead_financas.model.entity;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
@@ -19,11 +21,16 @@ public class Matricula {
 
   @ManyToOne
   @JoinColumn(name = "aluno_id")
+  @JsonBackReference(value = "aluno-matricula")
   private Usuario aluno;
 
   @ManyToOne
   @JoinColumn(name = "curso_id")
+  @JsonBackReference(value = "curso-matricula")
   private Curso curso;
+
+  @Column(nullable = false, unique = true)
+  private String numeroMatricula;
 
     private LocalDate dataMatricula;
 
@@ -37,10 +44,11 @@ public class Matricula {
   public Matricula() {
   }
 
-    public Matricula(Long id, Usuario aluno, Curso curso, LocalDate dataMatricula) {
+    public Matricula(Long id, Usuario aluno, Curso curso, LocalDate dataMatricula, String numeroMatricula) {
         this.id = id;
         this.aluno = aluno;
         this.curso = curso;
+      this.numeroMatricula = numeroMatricula;
         this.dataMatricula = dataMatricula;
     }
 
@@ -74,7 +82,15 @@ public class Matricula {
         return dataMatricula;
     }
 
-    public void setDataMatricula(LocalDate dataMatricula) {
+  public String getnumeroMatricula(){
+    return numeroMatricula;
+  }
+
+  public void setnumeroMatricula(String numeroMatricula){
+    this.numeroMatricula = numeroMatricula;
+  }
+
+  public void setDataMatricula(LocalDate dataMatricula) {
         this.dataMatricula = dataMatricula;
     }
 }
